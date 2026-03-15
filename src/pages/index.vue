@@ -76,10 +76,17 @@ await initPage()
             </B24Button>
           </B24Tooltip>
 
+          <!-- @todo: after UI update fix :b24ui -->
           <B24DropdownMenu
             v-if="!page.addButton.isOnlyBitrixMobile || (page.addButton.isOnlyBitrixMobile && isBxMobile)"
             :items="page.addButton.items"
             :content="{ align: 'end' }"
+            :b24ui="{
+              itemLabel: 'text-(--ui-color-base-1)',
+              itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+              itemTrailingIcon: 'w-[25px] h-[25px]',
+              itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+            }"
           >
             <B24Button
               :icon="PlusLIcon"

@@ -3,6 +3,7 @@ import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
 </script>
 
 <template>
+  <!-- @todo: after UI update fix :b24ui -->
   <B24DropdownMenu
     :modal="false"
     :items="[
@@ -36,7 +37,14 @@ import Expand1Icon from '@bitrix24/b24icons-vue/actions/Expand1Icon'
       }
     ]"
     :content="{ align: 'start', side: 'bottom', sideOffset: 4 }"
-    :b24ui="{ content: 'w-[200px]', viewport: 'w-[200px]' }"
+    :b24ui="{
+      itemLabel: 'text-(--ui-color-base-1)',
+      itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+      itemTrailingIcon: 'w-[25px] h-[25px]',
+      itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+      content: 'w-[200px]',
+      viewport: 'w-[200px]'
+    }"
   >
     <B24Button
       label="Dashboard"

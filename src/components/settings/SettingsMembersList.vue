@@ -2,6 +2,8 @@
 import type { Member } from '../../types'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 import MoreVerticalLIcon from '@bitrix24/b24icons-vue/outline/MoreVerticalLIcon'
+import PersonSettingsIcon from '@bitrix24/b24icons-vue/outline/PersonSettingsIcon'
+import TrashcanIcon from '@bitrix24/b24icons-vue/outline/TrashcanIcon'
 
 defineProps<{
   members: Member[]
@@ -10,11 +12,13 @@ defineProps<{
 const items = [
   {
     label: 'Edit member',
+    icon: PersonSettingsIcon,
     onSelect: () => console.log('Edit member')
   },
   {
     label: 'Remove member',
-    color: 'error' as const,
+    color: 'air-primary-alert' as const,
+    icon: TrashcanIcon,
     onSelect: () => console.log('Remove member')
   }
 ] satisfies DropdownMenuItem[]
@@ -50,7 +54,17 @@ const items = [
           :b24ui="{ value: 'capitalize', item: 'capitalize' }"
         />
 
-        <B24DropdownMenu :items="items" :content="{ align: 'end' }">
+        <!-- @todo: after UI update fix :b24ui -->
+        <B24DropdownMenu
+          :items="items"
+          :content="{ align: 'end', side: 'bottom', sideOffset: -2 }"
+          :b24ui="{
+            itemLabel: 'text-(--ui-color-base-1)',
+            itemLeadingIcon: 'w-[25px] h-[25px] dd-text-(--ui-color-base-5)',
+            itemTrailingIcon: 'w-[25px] h-[25px]',
+            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+          }"
+        >
           <B24Button
             :icon="MoreVerticalLIcon"
             color="air-tertiary"

@@ -11,6 +11,10 @@ import ReplyIcon from '@bitrix24/b24icons-vue/outline/ReplyIcon'
 import MoreVerticalLIcon from '@bitrix24/b24icons-vue/outline/MoreVerticalLIcon'
 import AttachIcon from '@bitrix24/b24icons-vue/outline/AttachIcon'
 import SendIcon from '@bitrix24/b24icons-vue/outline/SendIcon'
+import AlertAccentIcon from '@bitrix24/b24icons-vue/outline/AlertAccentIcon'
+import CloudPauseIcon from '@bitrix24/b24icons-vue/main/CloudPauseIcon'
+import LikeIcon from '@bitrix24/b24icons-vue/outline/LikeIcon'
+import ChatsIcon from '@bitrix24/b24icons-vue/outline/ChatsIcon'
 
 defineProps<{
   mail: Mail
@@ -19,11 +23,11 @@ defineProps<{
 const emits = defineEmits(['close'])
 
 const dropdownItems = [
-  { label: 'Mark as unread' },
-  { label: 'Mark as important' },
+  { label: 'Mark as unread', icon: ChatsIcon },
+  { label: 'Mark as important', icon: AlertAccentIcon },
   { type: 'separator' },
-  { label: 'Star thread' },
-  { label: 'Mute thread' }
+  { label: 'Star thread', icon: LikeIcon },
+  { label: 'Mute thread', icon: CloudPauseIcon }
 ] as DropdownMenuItem[]
 
 const toast = useToast()
@@ -74,7 +78,17 @@ async function onSubmit() {
           />
         </B24Tooltip>
 
-        <B24DropdownMenu :items="dropdownItems">
+        <!-- @todo: after UI update fix :b24ui -->
+        <B24DropdownMenu
+          :items="dropdownItems"
+          :content="{ align: 'end', side: 'bottom', sideOffset: -2 }"
+          :b24ui="{
+            itemLabel: 'text-(--ui-color-base-1)',
+            itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+            itemTrailingIcon: 'w-[25px] h-[25px]',
+            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+          }"
+        >
           <B24Button
             :icon="MoreVerticalLIcon"
             color="air-tertiary-no-accent"

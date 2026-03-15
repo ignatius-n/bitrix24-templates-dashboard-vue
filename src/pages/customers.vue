@@ -152,6 +152,7 @@ const columns: TableColumn<User>[] = [
     },
     enableHiding: false,
     cell: ({ row }) => {
+      // @todo: after UI update fix :b24ui
       return h(B24DropdownMenu, {
           'content': {
             align: 'center',
@@ -159,6 +160,12 @@ const columns: TableColumn<User>[] = [
             sideOffset: -2
           },
           'arrow': true,
+          'b24ui': {
+            itemLabel: 'text-(--ui-color-base-1)',
+            itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+            itemTrailingIcon: 'w-[25px] h-[25px]',
+            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+          },
           'items': getRowItems(row),
           'aria-label': 'Actions dropdown'
         }, () => h(B24Button, {
@@ -304,6 +311,7 @@ const pagination = ref({
           }"
         >
           <template #actions-header="{ table: tableInSlot }">
+            <!-- @todo: after UI update fix :b24ui -->
             <B24DropdownMenu
               :items="
                 tableInSlot
@@ -321,8 +329,13 @@ const pagination = ref({
                     }
                   }))
               "
-              arrow
-              :content="{ align: 'center' }"
+              :content="{ align: 'start', side: 'bottom' }"
+              :b24ui="{
+                itemLabel: 'text-(--ui-color-base-1)',
+                itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+                itemTrailingIcon: 'w-[25px] h-[25px]',
+                itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+              }"
             >
               <B24Button size="sm" color="air-tertiary-no-accent" :icon="SettingIcon" />
             </B24DropdownMenu>
