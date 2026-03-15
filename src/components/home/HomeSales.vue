@@ -38,7 +38,7 @@ const columns: TableColumn<Sale>[] = [
         {
           trailing: () =>
             h(ChevronDownLIcon, {
-              class: 'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)'
+              class: 'text-(--ui-btn-color) shrink-0 size-[13px]'
             })
         }
       )
@@ -112,19 +112,23 @@ const meta: TableMeta<Sale> = {
 </script>
 
 <template>
-  <B24Table
-    :loading="isLoading"
-    loading-animation="elastic"
-    :data="salesData"
-    :columns="columns"
-    :meta="meta"
-    class="shrink-0"
-    :b24ui="{
-      base: 'table-fixed border-separate border-spacing-0',
-      thead: '[&>tr]:bg-(--ui-color-bg-content-secondary) [&>tr]:after:content-none',
-      tbody: '[&>tr]:last:[&>td]:border-b-0',
-      th: 'first:rounded-l-lg last:rounded-r-lg border-y border-(--ui-color-divider-default) first:border-l last:border-r',
-      td: 'border-b border-(--ui-color-divider-default)'
-    }"
-  />
+  <div class="shrink-0 relative sm:rounded-lg sm:border border-(--ui-color-divider-default) overflow-hidden">
+    <!-- @todo: after UI update fix :b24ui -->
+    <B24Table
+      :loading="isLoading"
+      loading-animation="elastic"
+      :data="salesData"
+      :columns="columns"
+      :meta="meta"
+      class="shrink-0"
+      :b24ui="{
+        base: 'table-fixed border-separate border-spacing-0',
+        thead: '',
+        tbody: '[&>tr]:last:[&>td]:border-b-0',
+        th: 'py-2 border-b border-(--ui-color-divider-default)',
+        td: 'border-b border-(--ui-color-divider-default)',
+        separator: 'h-0'
+      }"
+    />
+  </div>
 </template>

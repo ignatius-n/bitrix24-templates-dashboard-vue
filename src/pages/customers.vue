@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TableColumn } from '@bitrix24/b24ui-nuxt'
+import type { TableColumn, TableRow } from '@bitrix24/b24ui-nuxt'
 import type { Column } from '@tanstack/vue-table'
 import type { User } from '../types'
 import { useTemplateRef, h, ref, computed, watch, resolveComponent } from 'vue'
@@ -34,6 +34,10 @@ const columnVisibility = ref()
 const rowSelection = ref({ 3: true })
 
 const { data, isFetching } = useFetch('https://dashboard-template.nuxt.dev/api/customers', { initialData: [] }).json<User[]>()
+
+function onSelect(e: Event, row: TableRow<Payment>) {
+  row.toggleSelected(!row.getIsSelected())
+}
 
 function getRowItems(row: Row<User>) {
   return [
@@ -101,11 +105,15 @@ function getHeader(column: Column<User>, label: string) {
       trailing: () => isSorted
         ? h((isSorted === 'asc' ? ChevronTopLIcon : ChevronDownLIcon), {
           class: {
-            'text-(--ui-btn-color) shrink-0 size-(--ui-btn-icon-size)': true,
+            'text-(--ui-btn-color) shrink-0 size-[13px]': true,
             'hidden group-hover:inline-flex': !isSorted
           }
         })
-        : undefined
+        : h('div', {
+          class: {
+            'size-[13px]': true
+          }
+        })
     }
   )
 }
@@ -287,7 +295,8 @@ const pagination = ref({
     </template>
 
     <template #body>
-      <div class="relative sm:rounded-lg sm:border border-(--ui-color-divider-default) overflow-hidden">
+      <div class="shrink-0 relative sm:rounded-lg sm:border border-(--ui-color-divider-default) overflow-hidden">
+        <!-- @todo: after UI update fix :b24ui -->
         <B24Table
           ref="table"
           v-model:sorting="sorting"
@@ -309,6 +318,7 @@ const pagination = ref({
             td: 'border-b border-(--ui-color-divider-default)',
             separator: 'h-0'
           }"
+          @select="onSelect"
         >
           <template #actions-header="{ table: tableInSlot }">
             <!-- @todo: after UI update fix :b24ui -->
