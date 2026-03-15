@@ -59,10 +59,18 @@ await initPage()
 </script>
 
 <template>
+  <!-- @todo: after UI update fix :b24ui -->
   <B24DashboardPanel id="home" :b24ui="{ body: 'p-4' }">
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardNavbar :title="page.title" :b24ui="{ root: 'ps-2 lg:ps-4', right: 'gap-3' }">
+      <B24DashboardNavbar
+        :title="page.title"
+        :b24ui="{
+          root: 'ps-2 lg:ps-4',
+          right: 'gap-3',
+          title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
+        }"
+      >
         <template #right>
           <B24Tooltip text="Notifications" :kbds="['N']">
             <B24Button

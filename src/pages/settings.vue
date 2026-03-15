@@ -44,7 +44,15 @@ const links = [
 <template>
   <B24DashboardPanel id="settings" :b24ui="{ body: 'p-4 lg:py-12' }">
     <template #header>
-      <B24DashboardNavbar title="Settings" />
+      <!-- @todo: after UI update fix :b24ui -->
+      <B24DashboardNavbar
+        title="Settings"
+        :b24ui="{
+          root: 'ps-2 lg:ps-4',
+          right: 'gap-3',
+          title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
+        }"
+      />
 
       <B24DashboardToolbar>
         <!-- NOTE: The `-mx-1` class is used to align with the `B24DashboardNavbar` here. -->

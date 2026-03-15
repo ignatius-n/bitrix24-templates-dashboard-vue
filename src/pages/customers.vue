@@ -266,7 +266,15 @@ const pagination = ref({
 <template>
   <B24DashboardPanel id="customers" :b24ui="{ body: 'pt-0 sm:p-4' }">
     <template #header>
-      <B24DashboardNavbar title="Customers" />
+      <!-- @todo: after UI update fix :b24ui -->
+      <B24DashboardNavbar
+        title="Customers"
+        :b24ui="{
+          root: 'ps-2 lg:ps-4',
+          right: 'gap-3',
+          title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
+        }"
+      />
       <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4' }">
         <template #left>
           <CustomersAddModal />
@@ -295,8 +303,9 @@ const pagination = ref({
     </template>
 
     <template #body>
-      <div class="shrink-0 relative sm:rounded-lg sm:border border-(--ui-color-divider-default) overflow-hidden">
+      <B24Card class="sm:rounded-lg" :b24ui="{ root: 'overflow-hidden', body: '!px-0 !pt-0 !pb-3' }">
         <!-- @todo: after UI update fix :b24ui -->
+        <!-- @todo: update footer -->
         <B24Table
           ref="table"
           v-model:sorting="sorting"
@@ -314,7 +323,7 @@ const pagination = ref({
             base: 'table-fixed border-separate border-spacing-0',
             thead: '',
             tbody: '[&>tr]:last:[&>td]:border-b-0',
-            th: 'py-2 first:rounded-tl-lg last:rounded-tr-lg border-b border-(--ui-color-divider-default)',
+            th: 'py-2 border-b border-(--ui-color-divider-default)',
             td: 'border-b border-(--ui-color-divider-default)',
             separator: 'h-0'
           }"
@@ -389,7 +398,7 @@ const pagination = ref({
             />
           </CustomersDeleteModal>
         </div>
-      </div>
+      </B24Card>
     </template>
   </B24DashboardPanel>
 </template>

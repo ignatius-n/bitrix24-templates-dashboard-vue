@@ -180,7 +180,7 @@ onMounted(() => {
       mode="drawer"
       collapsible
       resizable
-      class="bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-01) backdrop-blur-md"
+      class="bg-(--ui-color-bg-content-primary) backdrop-blur-md"
       :b24ui="{
         header: 'ps-4 pe-4',
         body: 'ps-4 pe-4',

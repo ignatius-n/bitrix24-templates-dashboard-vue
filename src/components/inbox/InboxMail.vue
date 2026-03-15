@@ -52,7 +52,7 @@ async function onSubmit() {
 </script>
 
 <template>
-  <B24DashboardPanel id="inbox-2">
+  <B24DashboardPanel id="inbox-2" class="bg-(--ui-color-bg-content-primary)">
     <B24DashboardNavbar :title="mail.subject" :toggle="false">
       <template #leading>
         <B24Button

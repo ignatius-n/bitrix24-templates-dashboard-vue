@@ -112,7 +112,7 @@ const meta: TableMeta<Sale> = {
 </script>
 
 <template>
-  <div class="shrink-0 relative sm:rounded-lg sm:border border-(--ui-color-divider-default) overflow-hidden">
+  <B24Card :b24ui="{ root: 'overflow-visible', body: '!px-0 !pt-0 !pb-3' }">
     <!-- @todo: after UI update fix :b24ui -->
     <B24Table
       :loading="isLoading"
@@ -130,5 +130,5 @@ const meta: TableMeta<Sale> = {
         separator: 'h-0'
       }"
     />
-  </div>
+  </B24Card>
 </template>
