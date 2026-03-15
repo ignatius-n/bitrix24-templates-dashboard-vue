@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
       bitrix24UIPluginVite ({
         colorMode: true,
         colorModeInitialValue: 'auto',
-        colorModeTypeLight: 'light',
+        colorModeTypeLight: 'edge-dark', // light
         colorModeStorageKey: 'bitrix24-ui-template-dashboard-vue'
       }),
       {

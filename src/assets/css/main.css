@@ -13,6 +13,17 @@
   .dark {
     --air-theme-bg-color: #000000;
   }
+
+  /*@todo: fix img*/
+  .edge-dark {
+    --air-theme-bg-image: url(https://b24-50g4ho.bitrix24.ru/bitrix/templates/bitrix24/themes/light/space/space.jpg);
+    --air-theme-bg-image-blurred: url(https://b24-50g4ho.bitrix24.ru/bitrix/templates/bitrix24/themes/light/space/space-blurred.webp);
+    --air-theme-bg-position: 0 0;
+    --air-theme-bg-size: cover;
+    --air-theme-bg-repeat: no-repeat;
+    --air-theme-bg-attachment: fixed;
+    --air-theme-bg-color: #325ab3;
+  }
 }
 
 /*@todo: after UI update fix*/
