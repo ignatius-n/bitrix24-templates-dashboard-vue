@@ -29,7 +29,9 @@ const validate = (state: Partial<PasswordSchema>): FormError[] => {
     title="Password"
     description="Confirm your current password before setting a new one."
     variant="tinted-no-accent"
-    :b24ui="{ root: 'bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)' }"
+    :b24ui="{
+      root: 'rounded-3xl bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)'
+    }"
     class="mb-4"
   >
     <B24Form
@@ -69,6 +71,9 @@ const validate = (state: Partial<PasswordSchema>): FormError[] => {
     title="Account"
     description="No longer want to use our service? You can delete your account here. This action is not reversible. All information related to this account will be deleted permanently."
     variant="tinted-alert"
+    :b24ui="{
+      root: 'rounded-3xl',
+    }"
   >
     <template #footer>
       <B24Button label="Delete account" color="air-primary-alert" />

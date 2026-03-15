@@ -60,15 +60,21 @@ await initPage()
 
 <template>
   <!-- @todo: after UI update fix :b24ui -->
-  <B24DashboardPanel id="home" :b24ui="{ body: 'p-4' }">
+  <B24DashboardPanel
+    id="home"
+    :b24ui="{
+      root: 'lg:not-last:border-0',
+      body: 'p-4'
+    }"
+  >
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->
       <B24DashboardNavbar
         :title="page.title"
         :b24ui="{
-          root: 'ps-2 lg:ps-4',
+          root: 'ps-2 lg:ps-4 border-0',
           right: 'gap-3',
-          title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
+          title: 'text-[length:25px] font-medium text-(--ui-color-base-1)'
         }"
       >
         <template #right>
@@ -83,31 +89,16 @@ await initPage()
               </B24Chip>
             </B24Button>
           </B24Tooltip>
-
-          <!-- @todo: after UI update fix :b24ui -->
-          <B24DropdownMenu
-            v-if="!page.addButton.isOnlyBitrixMobile || (page.addButton.isOnlyBitrixMobile && isBxMobile)"
-            :items="page.addButton.items"
-            :content="{ align: 'end' }"
-            :b24ui="{
-              itemLabel: 'text-(--ui-color-base-1)',
-              itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-              itemTrailingIcon: 'w-[25px] h-[25px]',
-              itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
-            }"
-          >
-            <B24Button
-              :icon="PlusLIcon"
-              size="xl"
-              color="air-primary"
-              class="fixed bottom-[13.5px] right-[24px] rounded-[18px] z-10 opacity-70 py-[29px] ps-[25px] pe-[33px] [--ui-btn-icon-size:32px]"
-            />
-          </B24DropdownMenu>
+          <!-- @todo: add form and slider -->
+          <B24Button
+            size="sm"
+            label="Feedback"
+          />
         </template>
       </B24DashboardNavbar>
 
       <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4' }">
+      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
         <template #left>
           <B24Button
             :icon="DatabaseIcon"
@@ -125,6 +116,25 @@ await initPage()
     </template>
 
     <template #body>
+      <!-- @todo: after UI update fix :b24ui -->
+      <B24DropdownMenu
+        v-if="!page.addButton.isOnlyBitrixMobile || (page.addButton.isOnlyBitrixMobile && isBxMobile)"
+        :items="page.addButton.items"
+        :content="{ align: 'end' }"
+        :b24ui="{
+              itemLabel: 'text-(--ui-color-base-1)',
+              itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+              itemTrailingIcon: 'w-[25px] h-[25px]',
+              itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+            }"
+      >
+        <B24Button
+          :icon="PlusLIcon"
+          size="xl"
+          color="air-primary"
+          class="fixed bottom-[13.5px] right-[24px] rounded-[18px] z-10 opacity-70 py-[29px] ps-[25px] pe-[33px] [--ui-btn-icon-size:32px]"
+        />
+      </B24DropdownMenu>
       <HomeStats />
       <template v-if="isLoading">
         <HomeLoaderChart class="min-h-[470px]" />

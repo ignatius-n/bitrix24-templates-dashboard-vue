@@ -60,23 +60,29 @@ function onFileClick() {
   >
     <B24PageCard
       title="Profile"
-      description="This information will be published.."
-      variant="plain-no-accent"
+      description="This information will be published."
+      variant="tinted-alt"
       orientation="horizontal"
-      class="mb-4"
-      :b24ui="{ container: 'p-0 sm:p-0' }"
+      class="mb-0"
+      :b24ui="{
+        root: 'rounded-none rounded-t-3xl',
+        container: 'py-0 sm:py-0 lg:items-center lg:grid-cols-[1fr_auto]',
+        title: 'text-(--ui-color-palette-gray-70)',
+        description: 'text-(--ui-color-palette-gray-70)'
+      }"
     >
-      <B24Button
-        form="settings"
-        label="Save changes"
-        color="air-primary-success"
-        type="submit"
-        class="w-fit lg:ms-auto"
-      />
+      <!-- @todo: fix img -->
+      <img
+        src="https://b24-50g4ho.bitrix24.ru/bitrix/components/bitrix/intranet.invitation/templates/.default/images/department-control-icon.png"
+        alt="Online workspace for the whole team"
+        class="flex-1 size-[100px]"
+      >
     </B24PageCard>
-
     <B24PageCard
       variant="outline-no-accent"
+      :b24ui="{
+        root: 'rounded-none rounded-b-3xl'
+      }"
     >
       <B24FormField
         name="name"
@@ -160,6 +166,15 @@ function onFileClick() {
           class="w-full"
         />
       </B24FormField>
+      <div>
+        <B24Button
+          form="settings"
+          label="Save changes"
+          color="air-primary"
+          type="submit"
+          class="w-fit lg:ms-auto"
+        />
+      </div>
     </B24PageCard>
   </B24Form>
 </template>

@@ -20,34 +20,47 @@ const filteredMembers = computed(() => {
     <B24PageCard
       title="Members"
       description="Invite new members by email address."
-      variant="plain-no-accent"
-      orientation="horizontal"
-      class="mb-4"
-      :b24ui="{ container: 'p-0 sm:p-0' }"
-    >
-      <B24Button
-        label="Invite people"
-        color="air-secondary"
-        class="w-fit lg:ms-auto"
-      />
-    </B24PageCard>
-
-    <B24PageCard
       variant="tinted-alt"
+      orientation="horizontal"
+      class="mb-0"
       :b24ui="{
-        root: 'bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)',
+        root: 'rounded-none rounded-t-3xl',
+        container: 'py-0 sm:py-0 lg:items-center lg:grid-cols-[1fr_auto]',
+        title: 'text-(--ui-color-palette-gray-70)',
+        description: 'text-(--ui-color-palette-gray-70)'
+      }"
+    >
+      <!-- @todo: fix img -->
+      <img
+        src="https://b24-50g4ho.bitrix24.ru/bitrix/components/bitrix/intranet.invitation/templates/.default/images/department-control-icon.png"
+        alt="Online workspace for the whole team"
+        class="flex-1 size-[100px]"
+      >
+    </B24PageCard>
+    <B24PageCard
+      variant="outline-no-accent"
+      :b24ui="{
+        root: 'rounded-none rounded-b-3xl',
         container: 'p-0 sm:p-0 gap-y-0',
         wrapper: 'items-stretch',
-        header: 'p-4 mb-0 border-b border-(--ui-color-divider-accent) dark:border-(--ui-color-divider-default)' }"
+        header: 'p-4 mb-0 border-b border-(--ui-color-divider-accent) dark:border-(--ui-color-divider-default)'
+      }"
     >
       <template #header>
-        <B24Input
-          v-model="q"
-          :icon="SearchIcon"
-          placeholder="Search members"
-          autofocus
-          class="w-full"
-        />
+        <div class="flex flex-row flex-nowrap gap-2">
+          <B24Input
+            v-model="q"
+            :icon="SearchIcon"
+            placeholder="Search members"
+            autofocus
+            class="w-full"
+          />
+          <B24Button
+            label="Invite"
+            color="air-primary"
+            class="w-fit lg:ms-auto"
+          />
+        </div>
       </template>
 
       <SettingsMembersList :members="filteredMembers" />

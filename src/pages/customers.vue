@@ -270,12 +270,20 @@ const pagination = ref({
       <B24DashboardNavbar
         title="Customers"
         :b24ui="{
-          root: 'ps-2 lg:ps-4',
+          root: 'ps-2 lg:ps-4 border-0',
           right: 'gap-3',
           title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
         }"
-      />
-      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4' }">
+      >
+        <template #right>
+          <B24Button
+            size="sm"
+            label="Feedback"
+          />
+        </template>
+      </B24DashboardNavbar>
+      <!-- @todo: after UI update fix :b24ui -->
+      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
         <template #left>
           <CustomersAddModal />
 
@@ -321,7 +329,7 @@ const pagination = ref({
           :loading="isFetching"
           :b24ui="{
             base: 'table-fixed border-separate border-spacing-0',
-            thead: '',
+            thead: '[&>tr]:[&>th]:h-[45px]',
             tbody: '[&>tr]:last:[&>td]:border-b-0',
             th: 'py-2 border-b border-(--ui-color-divider-default)',
             td: 'border-b border-(--ui-color-divider-default)',

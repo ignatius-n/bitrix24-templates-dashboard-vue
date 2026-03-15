@@ -173,44 +173,57 @@ onMounted(() => {
 
 <template>
   <B24DashboardGroup unit="px" storage="local">
-    <!-- @todo: after UI update fix -->
+    <!-- @todo: after UI update fix --ui-color-bg-content-primary -->
     <B24DashboardSidebar
       id="default"
       v-model:open="open"
       mode="drawer"
       collapsible
       resizable
-      class="bg-(--ui-color-bg-content-primary) backdrop-blur-md"
+      class="bg-(--air-theme-bg-color) backdrop-blur-md [--leftmenu-group-stroke:var(--ui-color-base-30)]"
       :b24ui="{
+        root: 'border-0',
         header: 'ps-4 pe-4',
         body: 'ps-4 pe-4',
-        footer: 'ps-4 pe-4 lg:border-t lg:border-(--ui-color-divider-default)'
+        footer: 'ps-4 pe-4 lg:border-t lg:border-(--ui-color-divider-default) light:lg:border-(--ui-color-base-30)'
       }"
     >
       <template #header="{ collapsed }">
         <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
-        <TemplateMenu v-if="!collapsed" />
+        <!-- @todo: add local component  -->
+        <ProseH2
+          v-show="!collapsed"
+          class="mb-0 text-[length:22px] font-semibold text-(--ui-color-base-1)"
+        >
+          Dashboard
+        </ProseH2>
       </template>
 
       <template #default="{ collapsed }">
-        <B24DashboardSearchButton :collapsed="collapsed" class="bg-transparent ring-(--ui-color-divider-default)" />
-        <!-- @todo: after UI update fix -->
+        <B24DashboardSearchButton
+          :collapsed="collapsed"
+          class="opacity-70 hover:opacity-100"
+        />
+        <!-- @todo: after UI update fix && see css -->
         <B24NavigationMenu
           :collapsed="collapsed"
           :items="links[0]"
           orientation="vertical"
-          tooltip
           popover
-          :b24ui="{ root: 'ps-0 rtl:pe-0 pe-0' }"
+          :b24ui="{
+            root: 'ps-0 rtl:pe-0 pe-0',
+            link: 'data-[active]:font-semibold'
+          }"
         />
-        <!-- @todo: after UI update fix -->
+        <!-- @todo: after UI update fix && see css -->
         <B24NavigationMenu
           :collapsed="collapsed"
           :items="links[1]"
           orientation="vertical"
-          tooltip
           class="mt-auto"
-          :b24ui="{ root: 'ps-0 rtl:pe-0 pe-0' }"
+          :b24ui="{
+            root: 'ps-0 rtl:pe-0 pe-0'
+          }"
         />
       </template>
 

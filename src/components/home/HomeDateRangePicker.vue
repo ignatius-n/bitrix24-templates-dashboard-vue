@@ -126,7 +126,7 @@ const selectRange = (range: { days?: number, months?: number, years?: number }) 
     v-for="(range, index) in ranges"
     :key="index"
     :label="range.label"
-    :color="isRangeSelected(range) ? 'air-primary' : 'air-secondary-accent-1'"
+    :color="isRangeSelected(range) ? 'air-primary' : 'air-secondary-no-accent'"
     :disabled="isLoading"
     @click="selectRange(range)"
   />

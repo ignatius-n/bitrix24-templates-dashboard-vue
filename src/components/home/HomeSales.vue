@@ -123,7 +123,7 @@ const meta: TableMeta<Sale> = {
       class="shrink-0"
       :b24ui="{
         base: 'table-fixed border-separate border-spacing-0',
-        thead: '',
+        thead: '[&>tr]:[&>th]:h-[45px]',
         tbody: '[&>tr]:last:[&>td]:border-b-0',
         th: 'py-2 border-b border-(--ui-color-divider-default)',
         td: 'border-b border-(--ui-color-divider-default)',

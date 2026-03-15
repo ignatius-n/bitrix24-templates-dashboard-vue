@@ -14,3 +14,17 @@
     --air-theme-bg-color: #000000;
   }
 }
+
+/*@todo: after UI update fix*/
+.menu-item-vertical {
+  --menu-item-background-active: var(--ui-color-design-filled-bg);
+  --menu-item-color-active: var(--ui-color-base-white-fixed);
+}
+
+.menu-item-vertical-active {
+  --menu-item-background: var(--ui-color-design-filled-bg);
+  --menu-item-color: var(--ui-color-base-white-fixed);
+
+}
+
+

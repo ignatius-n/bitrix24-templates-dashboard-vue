@@ -180,6 +180,43 @@ const items = computed<DropdownMenuItem[]>(() => [
         }
       }
     ]
+  },
+  {
+    type: 'separator'
+  },
+  {
+    label: 'Templates',
+    children: [
+      {
+        label: 'Starter',
+        to: 'https://bitrix24.github.io/starter-b24ui-vue/',
+        target: '_blank'
+      },
+      {
+        label: 'Dashboard',
+        to: 'https://bitrix24.github.io/templates-dashboard-vue/',
+        checked: true,
+        type: 'checkbox'
+      }
+    ]
+  },
+  {
+    type: 'separator'
+  },
+  {
+    label: 'B24 Ui',
+    to: 'https://bitrix24.github.io/b24ui/',
+    target: '_blank'
+  },
+  {
+    label: 'B24 Js Sdk',
+    to: 'https://bitrix24.github.io/b24jssdk/',
+    target: '_blank'
+  },
+  {
+    label: 'B24 Icons',
+    to: 'https://bitrix24.github.io/b24icons/',
+    target: '_blank'
   }
 ])
 </script>
@@ -188,12 +225,14 @@ const items = computed<DropdownMenuItem[]>(() => [
   <!-- @todo: after UI update fix :b24ui -->
   <B24DropdownMenu
     :items="items"
-    :content="{ align: 'start', collisionPadding: 12 }"
+    :content="{ align: 'start', side: 'top', sideOffset: -6, collisionPadding: 12 }"
     :b24ui="{
       itemLabel: 'text-(--ui-color-base-1)',
       itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
       itemTrailingIcon: 'w-[25px] h-[25px]',
-      itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+      itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+      content: 'w-[220px]',
+      viewport: 'w-[220px] max-h-[62vh]'
     }"
   >
     <B24Button

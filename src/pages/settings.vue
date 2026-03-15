@@ -48,13 +48,21 @@ const links = [
       <B24DashboardNavbar
         title="Settings"
         :b24ui="{
-          root: 'ps-2 lg:ps-4',
+          root: 'ps-2 lg:ps-4 border-0',
           right: 'gap-3',
           title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
         }"
-      />
+      >
+        <template #right>
+          <B24Button
+            size="sm"
+            label="Feedback"
+          />
+        </template>
+      </B24DashboardNavbar>
 
-      <B24DashboardToolbar>
+      <!-- @todo: after UI update fix :b24ui -->
+      <B24DashboardToolbar :b24ui="{ root: 'sm:px-4 border-0' }">
         <!-- NOTE: The `-mx-1` class is used to align with the `B24DashboardNavbar` here. -->
         <B24NavigationMenu :items="links" highlight class="-mx-2 flex-1" />
       </B24DashboardToolbar>

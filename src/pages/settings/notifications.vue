@@ -56,20 +56,31 @@ async function onChange() {
 
 <template>
   <div v-for="(section, index) in sections" :key="index">
+    <!-- @todo: after UI update fix :b24ui -->
     <B24PageCard
       :title="section.title"
       :description="section.description"
-      variant="plain-no-accent"
-      orientation="horizontal"
-      class="mb-4"
-      :b24ui="{ container: 'p-0 sm:p-0' }"
-    />
-
-    <!-- @todo: after UI update fix :b24ui -->
-    <B24PageCard
       variant="tinted-alt"
+      orientation="horizontal"
+      class="mb-0"
       :b24ui="{
-        root: 'bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)',
+        root: 'rounded-none rounded-t-3xl',
+        container: 'py-0 sm:py-0 lg:items-center lg:grid-cols-[1fr_auto]',
+        title: 'text-(--ui-color-palette-gray-70)',
+        description: 'text-(--ui-color-palette-gray-70)'
+      }"
+    >
+      <!-- @todo: fix img -->
+      <img
+        src="https://b24-50g4ho.bitrix24.ru/bitrix/components/bitrix/intranet.invitation/templates/.default/images/department-control-icon.png"
+        alt="Online workspace for the whole team"
+        class="flex-1 size-[100px]"
+      >
+    </B24PageCard>
+    <B24PageCard
+      variant="outline-no-accent"
+      :b24ui="{
+        root: 'rounded-none rounded-b-3xl',
         container: 'divide-y divide-(--ui-color-divider-accent) dark:divide-(--ui-color-divider-default)'
       }"
     >
