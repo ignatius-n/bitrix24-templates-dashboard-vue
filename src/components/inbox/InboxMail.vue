@@ -12,9 +12,9 @@ import MoreVerticalLIcon from '@bitrix24/b24icons-vue/outline/MoreVerticalLIcon'
 import AttachIcon from '@bitrix24/b24icons-vue/outline/AttachIcon'
 import SendIcon from '@bitrix24/b24icons-vue/outline/SendIcon'
 import AlertAccentIcon from '@bitrix24/b24icons-vue/outline/AlertAccentIcon'
-import CloudPauseIcon from '@bitrix24/b24icons-vue/main/CloudPauseIcon'
-import LikeIcon from '@bitrix24/b24icons-vue/outline/LikeIcon'
+import SoundOffIcon from '@bitrix24/b24icons-vue/outline/SoundOffIcon'
 import ChatsIcon from '@bitrix24/b24icons-vue/outline/ChatsIcon'
+import Favorite0Icon from '@bitrix24/b24icons-vue/main/Favorite0Icon'
 
 defineProps<{
   mail: Mail
@@ -26,8 +26,8 @@ const dropdownItems = [
   { label: 'Mark as unread', icon: ChatsIcon },
   { label: 'Mark as important', icon: AlertAccentIcon },
   { type: 'separator' },
-  { label: 'Star thread', icon: LikeIcon },
-  { label: 'Mute thread', icon: CloudPauseIcon }
+  { label: 'Add to Favorites', icon: Favorite0Icon },
+  { label: 'Mute', icon: SoundOffIcon }
 ] as DropdownMenuItem[]
 
 const toast = useToast()
