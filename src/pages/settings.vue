@@ -45,7 +45,7 @@ const links = [
   <!-- @todo: after UI update fix :b24ui -->
   <B24DashboardPanel
     id="settings"
-    :b24ui="{ body: 'p-4 lg:py-12 scrollbar-transparent' }"
+    :b24ui="{ body: 'sm:p-4 lg:py-12 scrollbar-transparent' }"
   >
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->

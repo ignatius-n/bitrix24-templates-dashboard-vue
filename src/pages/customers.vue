@@ -312,9 +312,9 @@ const pagination = ref({
 
     <template #body>
       <B24Card
-        class="base-mode rounded-none sm:rounded-lg"
+        class="base-mode"
         :b24ui="{
-          root: 'overflow-hidden',
+          root: 'overflow-hidden rounded-none sm:rounded-lg',
           body: '!px-0 !pt-0 !pb-3'
         }"
       >

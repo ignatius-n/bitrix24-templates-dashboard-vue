@@ -25,11 +25,11 @@ const items = [
 </script>
 
 <template>
-  <ul role="list" class="divide-y divide-(--ui-color-divider-accent) dark:divide-(--ui-color-divider-default)">
+  <ul role="list" class="w-full sm:max-w-full divide-y divide-(--ui-color-divider-accent) dark:divide-(--ui-color-divider-default)">
     <li
       v-for="(member, index) in members"
       :key="index"
-      class="flex items-center justify-between gap-3 py-3 px-4 sm:px-6"
+      class="flex items-center justify-between gap-3 py-3 px-2 sm:px-6"
     >
       <div class="flex items-center gap-3 min-w-0">
         <B24Avatar
@@ -47,10 +47,11 @@ const items = [
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1.5">
         <B24Select
           :model-value="member.role"
           :items="['member', 'owner']"
+          size="sm"
           :b24ui="{ value: 'capitalize', item: 'capitalize' }"
         />
 

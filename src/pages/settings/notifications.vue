@@ -64,8 +64,8 @@ async function onChange() {
       orientation="horizontal"
       class="mb-0 base-mode"
       :b24ui="{
-        root: 'rounded-none rounded-t-3xl',
-        container: 'py-0 sm:py-0 items-center grid grid-cols-[1fr_auto]',
+        root: 'rounded-none sm:rounded-t-3xl',
+        container: 'py-4 sm:py-2 items-center grid grid-cols-[1fr_auto]',
         title: 'text-(--ui-color-palette-gray-70)',
         description: 'text-(--ui-color-palette-gray-70)'
       }"
@@ -76,7 +76,7 @@ async function onChange() {
       variant="outline-no-accent"
       class="base-mode"
       :b24ui="{
-        root: 'rounded-none rounded-b-3xl',
+        root: 'rounded-none sm:rounded-b-3xl',
         container: 'divide-y divide-(--ui-color-divider-accent) dark:divide-(--ui-color-divider-default)'
       }"
     >

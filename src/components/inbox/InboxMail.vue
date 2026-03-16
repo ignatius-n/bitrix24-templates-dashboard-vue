@@ -38,7 +38,7 @@ const loading = ref(false)
 async function onSubmit() {
   loading.value = true
 
-  await sleepAction(5000)
+  await sleepAction(1000)
   toast.add({
     title: 'Email sent',
     description: 'Your email has been sent successfully',

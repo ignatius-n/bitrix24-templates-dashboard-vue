@@ -30,7 +30,7 @@ const validate = (state: Partial<PasswordSchema>): FormError[] => {
     description="Confirm your current password before setting a new one."
     variant="tinted-no-accent"
     :b24ui="{
-      root: 'rounded-3xl bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)'
+      root: 'rounded-none sm:rounded-3xl bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)'
     }"
     class="mb-4 base-mode"
   >
@@ -73,7 +73,7 @@ const validate = (state: Partial<PasswordSchema>): FormError[] => {
     variant="tinted-alert"
     class="base-mode"
     :b24ui="{
-      root: 'rounded-3xl',
+      root: 'rounded-none sm:rounded-3xl',
     }"
   >
     <template #footer>
