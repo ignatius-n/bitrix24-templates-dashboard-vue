@@ -259,12 +259,22 @@ const email = computed({
 
 const pagination = ref({
   pageIndex: 0,
-  pageSize: 10
+  pageSize: 15
+})
+
+const isSomeSelect = computed<boolean>((): boolean => {
+  const selectedRows = table.value?.tableApi?.getFilteredSelectedRowModel()?.rows
+  return !!selectedRows?.length
 })
 </script>
 
 <template>
-  <B24DashboardPanel id="customers" :b24ui="{ body: 'pt-0 sm:p-4' }">
+  <B24DashboardPanel
+    id="customers"
+    :b24ui="{
+      body: 'pt-0 sm:p-4 scrollbar-transparent'
+    }"
+  >
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->
       <B24DashboardNavbar
@@ -282,42 +292,33 @@ const pagination = ref({
           />
         </template>
       </B24DashboardNavbar>
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
-        <template #left>
-          <CustomersAddModal />
-
-          <B24Select
-            v-model="statusFilter"
-            :items="[
-              { label: 'All', value: 'all' },
-              { label: 'Subscribed', value: 'subscribed' },
-              { label: 'Unsubscribed', value: 'unsubscribed' },
-              { label: 'Bounced', value: 'bounced' }
-            ]"
-            :b24ui="{ trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200' }"
-            placeholder="Filter status"
-            class="min-w-[150px]"
-          />
-
-          <B24Input
-            v-model="email"
-            class="max-w-[384px]"
-            :icon="SearchIcon"
-            placeholder="Filter emails..."
-          />
-        </template>
-      </B24DashboardToolbar>
     </template>
 
     <template #body>
-      <B24Card
-        class="base-mode"
-        :b24ui="{
-          root: 'overflow-hidden rounded-none sm:rounded-lg',
-          body: '!px-0 !pt-0 !pb-3'
-        }"
-      >
+      <div class="shrink-0 flex items-center justify-start border-(--ui-color-divider-default) gap-3 overflow-x-auto min-h-[49px] px-1.5 sm:px-0 scrollbar-thin">
+        <CustomersAddModal />
+        <B24Select
+          v-model="statusFilter"
+          :items="[
+            { label: 'All', value: 'all' },
+            { label: 'Subscribed', value: 'subscribed' },
+            { label: 'Unsubscribed', value: 'unsubscribed' },
+            { label: 'Bounced', value: 'bounced' }
+          ]"
+          :b24ui="{ trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-200' }"
+          placeholder="Filter status"
+          class="min-w-[150px]"
+        />
+
+        <B24Input
+          v-model="email"
+          class="min-w-[284px] max-w-[384px]"
+          :icon="SearchIcon"
+          placeholder="Filter emails..."
+        />
+      </div>
+      <div class="relative base-mode shrink-0">
+        <!-- @todo: after UI update fix :b24ui -->
         <!-- @todo: after UI update fix :b24ui -->
         <!-- @todo: update footer -->
         <B24Table
@@ -328,18 +329,16 @@ const pagination = ref({
           v-model:row-selection="rowSelection"
           v-model:pagination="pagination"
           :pagination-options="{ getPaginationRowModel: getPaginationRowModel() }"
-          sticky
-          class="shrink-0 h-[calc(100dvh-50px-49px-70px-47px-12px)] sm:h-[calc(100dvh-50px-49px-61px-67px-32px)]"
+          class="shrink-0 bg-(--ui-color-design-outline-bg) rounded-none sm:rounded-t-lg"
           :data="data ?? []"
           :columns="columns"
           :loading="isFetching"
           :b24ui="{
-            base: 'table-fixed border-separate border-spacing-0',
+            base: 'relative table-fixed border-separate border-spacing-0',
             thead: '[&>tr]:[&>th]:h-[45px]',
             tbody: '[&>tr]:last:[&>td]:border-b-0',
             th: 'py-2 border-b border-(--ui-color-divider-default)',
-            td: 'border-b border-(--ui-color-divider-default)',
-            separator: 'h-0'
+            td: 'border-b border-(--ui-color-divider-default)'
           }"
           @select="onSelect"
         >
@@ -375,7 +374,7 @@ const pagination = ref({
           </template>
         </B24Table>
 
-        <div class="py-1.5 sm:py-3 flex flex-col md:flex-row gap-1.5 sm:gap-3 items-center justify-start border-t border-(--ui-color-divider-default)">
+        <div class="ps-3 py-3 flex flex-col md:flex-row gap-1.5 sm:gap-3 items-start md:items-center justify-start border-t border-(--ui-color-divider-default) bg-(--ui-color-design-outline-bg)">
           <div class="md:w-1/6">
             <div class="sm:ml-3 text-xs text-muted uppercase">
               Selected: <ProseStrong class="text-label">
@@ -384,7 +383,6 @@ const pagination = ref({
               </ProseStrong>
             </div>
           </div>
-
           <div class="flex-1 flex">
             <B24Pagination
               class="mx-auto"
@@ -396,23 +394,24 @@ const pagination = ref({
               @update:page="(p: number) => table?.tableApi?.setPageIndex(p - 1)"
             />
           </div>
-
           <div class="md:w-1/6 flex" />
         </div>
 
-        <div class="py-1.5 sm:py-3 flex flex-col md:flex-row gap-1.5 sm:gap-3 items-center justify-between border-t border-(--ui-color-divider-default)">
+        <div
+          class="sm:ps-1 relative border-t border-(--ui-color-divider-default) py-3 flex flex-row flex-nowrap gap-1.5 sm:gap-3 items-center justify-between bg-(--ui-color-design-outline-bg) rounded-none sm:rounded-b-lg"
+          :class="[isSomeSelect ? 'sticky z-1 -bottom-4 bitrix-mobile:bottom-0' : '']"
+        >
           <CustomersDeleteModal :count="table?.tableApi?.getFilteredSelectedRowModel().rows.length">
             <B24Button
-              :disabled="(table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0) < 1"
+              :disabled="!isSomeSelect"
               label="Delete"
               :icon="CrossLIcon"
               :normal-case="false"
               color="air-tertiary-no-accent"
-              class="sm:ml-1"
             />
           </CustomersDeleteModal>
         </div>
-      </B24Card>
+      </div>
     </template>
   </B24DashboardPanel>
 </template>

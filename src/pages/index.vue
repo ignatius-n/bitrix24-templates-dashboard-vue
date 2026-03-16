@@ -98,7 +98,7 @@ await initPage()
       </B24DashboardNavbar>
 
       <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
+      <B24DashboardToolbar class="scrollbar-thin scrollbar-transparent" :b24ui="{ root: 'sm:px-4 border-0' }">
         <template #left>
           <B24Button
             :icon="DatabaseIcon"
