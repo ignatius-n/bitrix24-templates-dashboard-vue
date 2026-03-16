@@ -52,7 +52,7 @@ async function onSubmit() {
 </script>
 
 <template>
-  <B24DashboardPanel id="inbox-2" class="bg-(--ui-color-bg-content-primary)">
+  <B24DashboardPanel id="inbox-2" class="base-mode bg-(--ui-color-bg-content-primary)">
     <B24DashboardNavbar :title="mail.subject" :toggle="false">
       <template #leading>
         <B24Button
@@ -130,9 +130,9 @@ async function onSubmit() {
       <!-- @todo: after UI update fix :b24ui -->
       <B24Card
         variant="tinted-no-accent"
-        class="mt-auto"
+        class="mt-auto base-mode"
         :b24ui="{
-          root: 'bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)',
+          root: 'dark:bg-(--ui-color-base-black-fixed) bg-(--ui-color-gray-02)',
           header: 'flex items-center gap-1.5'
         }"
       >

@@ -64,7 +64,7 @@ await initPage()
     id="home"
     :b24ui="{
       root: 'lg:not-last:border-0',
-      body: 'p-4'
+      body: 'p-4 scrollbar-transparent'
     }"
   >
     <template #header>
@@ -122,11 +122,11 @@ await initPage()
         :items="page.addButton.items"
         :content="{ align: 'end' }"
         :b24ui="{
-              itemLabel: 'text-(--ui-color-base-1)',
-              itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-              itemTrailingIcon: 'w-[25px] h-[25px]',
-              itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
-            }"
+          itemLabel: 'text-(--ui-color-base-1)',
+          itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+          itemTrailingIcon: 'w-[25px] h-[25px]',
+          itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+        }"
       >
         <B24Button
           :icon="PlusLIcon"

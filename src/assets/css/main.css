@@ -14,10 +14,9 @@
     --air-theme-bg-color: #000000;
   }
 
-  /*@todo: fix img*/
   .edge-dark {
-    --air-theme-bg-image: url(https://b24-50g4ho.bitrix24.ru/bitrix/templates/bitrix24/themes/light/space/space.jpg);
-    --air-theme-bg-image-blurred: url(https://b24-50g4ho.bitrix24.ru/bitrix/templates/bitrix24/themes/light/space/space-blurred.webp);
+    --air-theme-bg-image: url(../bg/astronomical-watercolor.jpg);
+    --air-theme-bg-image-blurred: url(../bg/astronomical-watercolor.jpg);
     --air-theme-bg-position: 0 0;
     --air-theme-bg-size: cover;
     --air-theme-bg-repeat: no-repeat;
@@ -27,15 +26,19 @@
 }
 
 /*@todo: after UI update fix*/
-.menu-item-vertical {
+body {
+  color: initial !important;
+}
+
+/*@todo: after UI update fix*/
+.light .menu-item-vertical {
   --menu-item-background-active: var(--ui-color-design-filled-bg);
   --menu-item-color-active: var(--ui-color-base-white-fixed);
 }
 
-.menu-item-vertical-active {
+.light .menu-item-vertical-active {
   --menu-item-background: var(--ui-color-design-filled-bg);
   --menu-item-color: var(--ui-color-base-white-fixed);
-
 }
 
 

@@ -55,7 +55,7 @@ const isMobile = breakpoints.smaller('lg')
     :min-size="400"
     :max-size="480"
     resizable
-    class="bg-(--ui-color-bg-content-primary)"
+    class="base-mode bg-(--ui-color-bg-content-primary)"
   >
     <!-- @todo: after UI update fix :b24ui -->
     <B24DashboardNavbar
@@ -84,7 +84,7 @@ const isMobile = breakpoints.smaller('lg')
   </B24DashboardPanel>
 
   <InboxMail v-if="selectedMail" :mail="selectedMail" @close="selectedMail = null" />
-  <div v-else class="hidden bg-(--ui-color-bg-content-primary) lg:flex flex-1 items-center justify-center">
+  <div v-else class="hidden base-mode bg-(--ui-color-bg-content-primary) lg:flex flex-1 items-center justify-center">
     <MailOpenIcon class="size-32 text-dimmed" />
   </div>
 

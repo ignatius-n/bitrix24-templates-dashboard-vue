@@ -42,7 +42,11 @@ const links = [
 </script>
 
 <template>
-  <B24DashboardPanel id="settings" :b24ui="{ body: 'p-4 lg:py-12' }">
+  <!-- @todo: after UI update fix :b24ui -->
+  <B24DashboardPanel
+    id="settings"
+    :b24ui="{ body: 'p-4 lg:py-12 scrollbar-transparent' }"
+  >
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->
       <B24DashboardNavbar
@@ -62,9 +66,8 @@ const links = [
       </B24DashboardNavbar>
 
       <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardToolbar :b24ui="{ root: 'sm:px-4 border-0' }">
-        <!-- NOTE: The `-mx-1` class is used to align with the `B24DashboardNavbar` here. -->
-        <B24NavigationMenu :items="links" highlight class="-mx-2 flex-1" />
+      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
+        <B24NavigationMenu :items="links" highlight class="flex-1" />
       </B24DashboardToolbar>
     </template>
 

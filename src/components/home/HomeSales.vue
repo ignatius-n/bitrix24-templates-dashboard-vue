@@ -112,7 +112,10 @@ const meta: TableMeta<Sale> = {
 </script>
 
 <template>
-  <B24Card :b24ui="{ root: 'overflow-visible', body: '!px-0 !pt-0 !pb-3' }">
+  <B24Card
+    class="base-mode"
+    :b24ui="{ root: 'overflow-visible', body: '!px-0 !pt-0 !pb-3' }"
+  >
     <!-- @todo: after UI update fix :b24ui -->
     <B24Table
       :loading="isLoading"

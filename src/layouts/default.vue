@@ -173,14 +173,14 @@ onMounted(() => {
 
 <template>
   <B24DashboardGroup unit="px" storage="local">
-    <!-- @todo: after UI update fix --ui-color-bg-content-primary -->
+    <!-- @todo: after UI update fix bg-(--air-theme-bg-color)  --ui-color-bg-content-primary --leftmenu-group-stroke -->
     <B24DashboardSidebar
       id="default"
       v-model:open="open"
       mode="drawer"
       collapsible
       resizable
-      class="bg-(--air-theme-bg-color) backdrop-blur-md [--leftmenu-group-stroke:var(--ui-color-base-30)]"
+      class="backdrop-blur-md light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"
       :b24ui="{
         root: 'border-0',
         header: 'ps-4 pe-4',
@@ -190,13 +190,7 @@ onMounted(() => {
     >
       <template #header="{ collapsed }">
         <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
-        <!-- @todo: add local component  -->
-        <ProseH2
-          v-show="!collapsed"
-          class="mb-0 text-[length:22px] font-semibold text-(--ui-color-base-1)"
-        >
-          Dashboard
-        </ProseH2>
+        <Title v-show="!collapsed" />
       </template>
 
       <template #default="{ collapsed }">

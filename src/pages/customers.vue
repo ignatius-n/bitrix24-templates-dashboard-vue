@@ -35,7 +35,7 @@ const rowSelection = ref({ 3: true })
 
 const { data, isFetching } = useFetch('https://dashboard-template.nuxt.dev/api/customers', { initialData: [] }).json<User[]>()
 
-function onSelect(e: Event, row: TableRow<Payment>) {
+function onSelect(_: Event, row: TableRow<User>) {
   row.toggleSelected(!row.getIsSelected())
 }
 
@@ -311,7 +311,13 @@ const pagination = ref({
     </template>
 
     <template #body>
-      <B24Card class="sm:rounded-lg" :b24ui="{ root: 'overflow-hidden', body: '!px-0 !pt-0 !pb-3' }">
+      <B24Card
+        class="base-mode rounded-none sm:rounded-lg"
+        :b24ui="{
+          root: 'overflow-hidden',
+          body: '!px-0 !pt-0 !pb-3'
+        }"
+      >
         <!-- @todo: after UI update fix :b24ui -->
         <!-- @todo: update footer -->
         <B24Table
