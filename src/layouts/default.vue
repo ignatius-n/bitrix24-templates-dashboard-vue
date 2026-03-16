@@ -180,9 +180,9 @@ onMounted(() => {
       mode="drawer"
       collapsible
       resizable
-      class="backdrop-blur-md light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"
+      class="backdrop-blur-md edge-dark:bg-(--ui-color-base-0)/5 light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"
       :b24ui="{
-        root: 'border-1 border-(--ui-color-divider-accent)',
+        root: 'border-0 border-(--ui-color-divider-accent)',
         header: 'ps-4 pe-4',
         body: 'ps-4 pe-4',
         footer: 'ps-4 pe-4 lg:border-t lg:border-(--ui-color-divider-default) light:lg:border-(--ui-color-base-30)'
