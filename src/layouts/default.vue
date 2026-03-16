@@ -182,7 +182,7 @@ onMounted(() => {
       resizable
       class="backdrop-blur-md light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"
       :b24ui="{
-        root: 'border-0',
+        root: 'border-1 border-(--ui-color-divider-accent)',
         header: 'ps-4 pe-4',
         body: 'ps-4 pe-4',
         footer: 'ps-4 pe-4 lg:border-t lg:border-(--ui-color-divider-default) light:lg:border-(--ui-color-base-30)'
