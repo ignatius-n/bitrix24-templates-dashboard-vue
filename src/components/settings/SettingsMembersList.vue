@@ -52,6 +52,7 @@ const items = [
           :model-value="member.role"
           :items="['member', 'owner']"
           size="sm"
+          :content="{ align: 'end', side: 'bottom' }"
           :b24ui="{ value: 'capitalize', item: 'capitalize' }"
         />
 

@@ -271,9 +271,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
 <template>
   <B24DashboardPanel
     id="customers"
-    :b24ui="{
-      body: 'pt-0 sm:p-4 scrollbar-transparent'
-    }"
+    :b24ui="{ body: 'pt-0 sm:p-4 scrollbar-transparent' }"
   >
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->
@@ -398,7 +396,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
         </div>
 
         <div
-          class="sm:ps-1 relative border-t border-(--ui-color-divider-default) py-3 flex flex-row flex-nowrap gap-1.5 sm:gap-3 items-center justify-between bg-(--ui-color-design-outline-bg) rounded-none sm:rounded-b-lg"
+          class="ps-1.5 relative border-t border-(--ui-color-divider-default) py-3 flex flex-row flex-nowrap gap-1.5 sm:gap-3 items-center justify-between bg-(--ui-color-design-outline-bg) rounded-none sm:rounded-b-lg"
           :class="[isSomeSelect ? 'sticky z-1 -bottom-4 bitrix-mobile:bottom-0' : '']"
         >
           <CustomersDeleteModal :count="table?.tableApi?.getFilteredSelectedRowModel().rows.length">

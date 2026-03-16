@@ -10,8 +10,19 @@
     --ui-btn-background-hover: #162345;
   }
 
+  /*@todo: after UI update fix*/
+  [data-platform="bitrix-mobile"].light {
+    --air-theme-bg-color: #ffffff;
+    --ui-btn-background-hover: #162345;
+  }
+
   .dark {
     --air-theme-bg-color: #000000;
+  }
+
+  /*@todo: after UI update fix*/
+  [data-platform="bitrix-mobile"].dark {
+    --air-theme-bg-color: #111111;
   }
 
   .edge-dark {
