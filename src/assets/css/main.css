@@ -6,15 +6,13 @@
  */
 @layer base {
   .light, :root {
-    --air-theme-bg-color: #fff;
-    dddd--air-theme-bg-color: #eef2f4;
+    --air-theme-bg-color: #eef2f4;
     --ui-btn-background-hover: #162345;
   }
 
   /*@todo: after UI update fix*/
   [data-platform="bitrix-mobile"].light {
     --air-theme-bg-color: #ffffff;
-    --ui-btn-background-hover: #162345;
   }
 
   .dark {
