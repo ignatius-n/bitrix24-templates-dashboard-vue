@@ -97,94 +97,94 @@ async function onSubmit() {
       </template>
     </B24DashboardNavbar>
 
-    <div class="flex flex-col sm:flex-row justify-between gap-1 p-4 sm:px-6 border-b border-(--ui-color-divider-default)">
+    <div class="flex flex-row justify-between gap-2 p-3 sm:px-6 sm:py-4 border-b border-(--ui-color-divider-default)">
       <div class="flex items-start gap-4 sm:my-1.5">
         <B24Avatar
           v-bind="mail.from.avatar"
           :alt="mail.from.name"
-          size="xl"
+          size="md"
+          class="mt-1"
         />
 
         <div class="min-w-0">
-          <p class="font-semibold text-highlighted">
+          <ProseP accent="default" class="mb-0 font-semibold">
             {{ mail.from.name }}
-          </p>
-          <p class="text-muted">
+          </ProseP>
+          <ProseP accent="less" small class="mb-0">
             {{ mail.from.email }}
-          </p>
+          </ProseP>
         </div>
       </div>
 
-      <p class="max-sm:pl-16 text-muted text-sm sm:mt-2">
+      <ProseP accent="less-more" small class="mb-0 sm:mt-2">
         {{ format(new Date(mail.date), 'dd MMM HH:mm') }}
-      </p>
+      </ProseP>
     </div>
 
-    <div class="flex-1 p-4 sm:p-6 max-h-[200px] sm:max-h-max overflow-y-auto scrollbar-thin">
+    <div class="shrink-0 max-h-[250px] bitrix-mobile:max-h-[230px] p-3 sm:p-6 sm:py-4 sm:max-h-max overflow-y-auto scrollbar-thin">
       <p class="whitespace-pre-wrap">
         {{ mail.body }}
       </p>
     </div>
 
-    <div class="pb-4 px-4 sm:px-6 shrink-0">
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24Card
-        variant="tinted-no-accent"
-        class="mt-auto base-mode"
-        :b24ui="{
-          root: 'dark:bg-(--ui-color-base-black-fixed) bg-(--ui-color-gray-02)',
-          header: 'flex items-center gap-1.5'
-        }"
-      >
-        <template #header>
-          <ReplyIcon class="size-5" />
+    <!-- @todo: after UI update fix :b24ui -->
+    <B24Card
+      variant="tinted-no-accent"
+      class="base-mode mt-auto mx-2 mb-2 flex-1 max-sm:max-h-[250px] md:max-h-[230px] "
+      :b24ui="{
+        root: 'dark:bg-(--ui-color-base-black-fixed) bg-(--ui-color-gray-02)',
+        header: 'p-3 sm:p-3 flex items-center gap-1.5',
+        body: 'p-0 sm:p-0 '
+      }"
+    >
+      <template #header>
+        <ReplyIcon class="size-5" />
 
-          <span class="text-sm truncate">
-            Reply to {{ mail.from.name }} ({{ mail.from.email }})
-          </span>
-        </template>
+        <span class="text-sm truncate">
+          Reply to {{ mail.from.name }} ({{ mail.from.email }})
+        </span>
+      </template>
 
-        <form @submit.prevent="onSubmit">
-          <B24Textarea
-            v-model="reply"
-            required
-            autoresize
-            placeholder="Write your reply..."
-            no-padding
-            no-border
-            :rows="2"
-            :maxrows="5"
-            :disabled="loading"
-            class="w-full"
-            :b24ui="{ base: 'resize-none' }"
-          />
+      <form @submit.prevent="onSubmit">
+        <B24Textarea
+          v-model="reply"
+          required
+          :autoresize="false"
+          placeholder="Write your reply..."
+          padding
+          no-border
+          :rows="6"
+          :maxrows="6"
+          :disabled="loading"
+          class="w-full"
+          :b24ui="{ base: 'resize-none' }"
+        />
 
-          <div class="flex items-center justify-between">
-            <B24Tooltip text="Attach file">
-              <B24Button
-                color="air-tertiary-no-accent"
-                :disabled="loading"
-                :icon="AttachIcon"
-              />
-            </B24Tooltip>
+        <div class="flex items-center justify-between px-3 py-0.5">
+          <B24Tooltip text="Attach file">
+            <B24Button
+              color="air-tertiary-no-accent"
+              :disabled="loading"
+              :icon="AttachIcon"
+            />
+          </B24Tooltip>
 
-            <div class="flex items-center justify-end gap-2">
-              <B24Button
-                color="air-tertiary-no-accent"
-                :disabled="loading"
-                label="Save draft"
-              />
-              <B24Button
-                type="submit"
-                color="air-primary"
-                :loading="loading"
-                label="Send"
-                :icon="SendIcon"
-              />
-            </div>
+          <div class="flex items-center justify-end gap-2">
+            <B24Button
+              color="air-tertiary-no-accent"
+              :disabled="loading"
+              label="Save draft"
+            />
+            <B24Button
+              type="submit"
+              color="air-primary"
+              :loading="loading"
+              label="Send"
+              :icon="SendIcon"
+            />
           </div>
-        </form>
-      </B24Card>
-    </div>
+        </div>
+      </form>
+    </B24Card>
   </B24DashboardPanel>
 </template>

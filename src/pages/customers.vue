@@ -263,7 +263,7 @@ const email = computed({
 
 const pagination = ref({
   pageIndex: 0,
-  pageSize: 1
+  pageSize: 15
 })
 
 const isSomeSelect = computed<boolean>((): boolean => {
@@ -284,7 +284,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
         :b24ui="{
           root: 'ps-2 lg:ps-4 border-0',
           right: 'gap-3',
-          title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
+          title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
         }"
       >
         <template #right>

@@ -63,7 +63,7 @@ const isMobile = breakpoints.smaller('lg')
       :b24ui="{
         root: 'ps-2 lg:ps-4',
         right: 'gap-3',
-        title: 'text-[length:25px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
+        title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
       }"
     >
       <template #trailing>
@@ -88,9 +88,16 @@ const isMobile = breakpoints.smaller('lg')
     <MailOpenIcon class="size-32 text-dimmed" />
   </div>
 
-  <B24Drawer v-if="isMobile" v-model:open="isMailPanelOpen">
+  <B24Modal
+    v-if="isMobile"
+    v-model:open="isMailPanelOpen"
+    fullscreen
+    :b24ui="{
+      content: 'p-0 pt-0'
+    }"
+  >
     <template #content>
       <InboxMail v-if="selectedMail" :mail="selectedMail" @close="selectedMail = null" />
     </template>
-  </B24Drawer>
+  </B24Modal>
 </template>

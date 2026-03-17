@@ -74,7 +74,7 @@ await initPage()
         :b24ui="{
           root: 'ps-2 lg:ps-4 border-0',
           right: 'gap-3',
-          title: 'text-[length:25px] font-medium text-(--ui-color-base-1)'
+          title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-medium text-(--ui-color-base-1)'
         }"
       >
         <template #right>
