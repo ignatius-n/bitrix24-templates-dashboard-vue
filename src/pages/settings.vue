@@ -67,7 +67,14 @@ const links = [
 
       <!-- @todo: after UI update fix :b24ui -->
       <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
-        <B24NavigationMenu :items="links" highlight class="flex-1" />
+        <!-- @todo: after UI update fix :b24ui -->
+        <B24NavigationMenu
+          :items="links"
+          class="flex-1"
+          :b24ui="{
+            link: 'leading-7 data-[active]:leading-7 bitrix-mobile:px-3 bitrix-mobile:h-[34px] bitrix-mobile:border-(--ui-color-base-7) bitrix-mobile:text-(--ui-color-base-4) bitrix-mobile:data-[active]:bg-transparent bitrix-mobile:data-[active]:border-(--ui-color-base-2) bitrix-mobile:data-[active]:text-(--ui-color-base-2)'
+          }"
+        />
       </B24DashboardToolbar>
     </template>
 
