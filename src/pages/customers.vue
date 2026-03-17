@@ -39,7 +39,7 @@ function onSelect(_: Event, row: TableRow<User>) {
   row.toggleSelected(!row.getIsSelected())
 }
 
-function getRowItems(row: Row<User>) {
+function getRowActions(row: Row<User>) {
   return [
     {
       type: 'label',
@@ -169,12 +169,16 @@ const columns: TableColumn<User>[] = [
           },
           'arrow': true,
           'b24ui': {
-            itemLabel: 'text-(--ui-color-base-1)',
+            itemLabel: 'text-(--ui-color-base-1) ',
             itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
             itemTrailingIcon: 'w-[25px] h-[25px]',
-            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
+            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
+            label: 'bitrix-mobile:pe-0 bitrix-mobile:h-[27px] bitrix-mobile:mt-0 bitrix-mobile:-mb-[12px] bitrix-mobile:[&_[data-slot="itemLabel"]]:text-(--ui-color-base-5)',
+            item: 'bitrix-mobile:mt-0 bitrix-mobile:pe-2 bitrix-mobile:h-[42px] bitrix-mobile:gap-2 bitrix-mobile:[[data-slot="item"]+&]:border-t bitrix-mobile:border-t-(--ui-color-divider-vibrant-default) bitrix-mobile:data-highlighted:bg-(--ui-color-bg-state-hover-default) bitrix-mobile:data-[state=open]:bg-(--ui-color-bg-state-hover-default)',
+            separator: 'bitrix-mobile:mx-0 bitrix-mobile:my-0 bitrix-mobile:h-[6px]',
+            content: 'bitrix-mobile:py-0!'
           },
-          'items': getRowItems(row),
+          'items': getRowActions(row),
           'aria-label': 'Actions dropdown'
         }, () => h(B24Button, {
         'icon': MenuIcon,
@@ -259,7 +263,7 @@ const email = computed({
 
 const pagination = ref({
   pageIndex: 0,
-  pageSize: 15
+  pageSize: 1
 })
 
 const isSomeSelect = computed<boolean>((): boolean => {
@@ -271,7 +275,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
 <template>
   <B24DashboardPanel
     id="customers"
-    :b24ui="{ body: 'pt-0 sm:p-4 scrollbar-transparent' }"
+    :b24ui="{ body: 'pt-0 sm:p-4 sm:pt-0 lg:pt-0 scrollbar-transparent' }"
   >
     <template #header>
       <!-- @todo: after UI update fix :b24ui -->
