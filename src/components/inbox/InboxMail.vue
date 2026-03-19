@@ -78,16 +78,9 @@ async function onSubmit() {
           />
         </B24Tooltip>
 
-        <!-- @todo: after UI update fix :b24ui -->
         <B24DropdownMenu
           :items="dropdownItems"
           :content="{ align: 'end', side: 'bottom', sideOffset: -2 }"
-          :b24ui="{
-            itemLabel: 'text-(--ui-color-base-1)',
-            itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-            itemTrailingIcon: 'w-[25px] h-[25px]',
-            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
-          }"
         >
           <B24Button
             :icon="MoreVerticalLIcon"
@@ -127,7 +120,7 @@ async function onSubmit() {
       </p>
     </div>
 
-    <!-- @todo: after UI update fix :b24ui -->
+    <!-- @todo: B24PageCard after UI update fix :b24ui -->
     <B24Card
       variant="tinted-no-accent"
       class="base-mode mt-auto mx-2 mb-2 flex-1 max-sm:max-h-[250px] md:max-h-[230px] "

@@ -160,7 +160,6 @@ const columns: TableColumn<User>[] = [
     },
     enableHiding: false,
     cell: ({ row }) => {
-      // @todo: after UI update fix :b24ui
       return h(B24DropdownMenu, {
           'content': {
             align: 'center',
@@ -168,16 +167,6 @@ const columns: TableColumn<User>[] = [
             sideOffset: -2
           },
           'arrow': true,
-          'b24ui': {
-            itemLabel: 'text-(--ui-color-base-1) ',
-            itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-            itemTrailingIcon: 'w-[25px] h-[25px]',
-            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-            label: 'bitrix-mobile:pe-0 bitrix-mobile:h-[27px] bitrix-mobile:mt-0 bitrix-mobile:-mb-[12px] bitrix-mobile:[&_[data-slot="itemLabel"]]:text-(--ui-color-base-5)',
-            item: 'bitrix-mobile:mt-0 bitrix-mobile:pe-2 bitrix-mobile:h-[42px] bitrix-mobile:gap-2 bitrix-mobile:[[data-slot="item"]+&]:border-t bitrix-mobile:border-t-(--ui-color-divider-vibrant-default) bitrix-mobile:data-highlighted:bg-(--ui-color-bg-state-hover-default) bitrix-mobile:data-[state=open]:bg-(--ui-color-bg-state-hover-default)',
-            separator: 'bitrix-mobile:mx-0 bitrix-mobile:my-0 bitrix-mobile:h-[6px]',
-            content: 'bitrix-mobile:py-0!'
-          },
           'items': getRowActions(row),
           'aria-label': 'Actions dropdown'
         }, () => h(B24Button, {
@@ -273,20 +262,9 @@ const isSomeSelect = computed<boolean>((): boolean => {
 </script>
 
 <template>
-  <B24DashboardPanel
-    id="customers"
-    :b24ui="{ body: 'pt-0 sm:p-4 sm:pt-0 lg:pt-0 scrollbar-transparent' }"
-  >
+  <B24DashboardPanel id="customers" :b24ui="{ body: 'scrollbar-transparent' }">
     <template #header>
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardNavbar
-        title="Customers"
-        :b24ui="{
-          root: 'ps-2 lg:ps-4 border-0',
-          right: 'gap-3',
-          title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
-        }"
-      >
+      <B24DashboardNavbar title="Customers">
         <template #right>
           <B24Button
             size="sm"
@@ -320,9 +298,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
         />
       </div>
       <div class="relative base-mode shrink-0">
-        <!-- @todo: after UI update fix :b24ui -->
-        <!-- @todo: after UI update fix :b24ui -->
-        <!-- @todo: update footer -->
+        <!-- @todo: NEW update footer -->
         <B24Table
           ref="table"
           v-model:sorting="sorting"
@@ -335,17 +311,9 @@ const isSomeSelect = computed<boolean>((): boolean => {
           :data="data ?? []"
           :columns="columns"
           :loading="isFetching"
-          :b24ui="{
-            base: 'relative table-fixed border-separate border-spacing-0',
-            thead: '[&>tr]:[&>th]:h-[45px]',
-            tbody: '[&>tr]:last:[&>td]:border-b-0',
-            th: 'py-2 border-b border-(--ui-color-divider-default)',
-            td: 'border-b border-(--ui-color-divider-default)'
-          }"
           @select="onSelect"
         >
           <template #actions-header="{ table: tableInSlot }">
-            <!-- @todo: after UI update fix :b24ui -->
             <B24DropdownMenu
               :items="
                 tableInSlot
@@ -364,12 +332,6 @@ const isSomeSelect = computed<boolean>((): boolean => {
                   }))
               "
               :content="{ align: 'start', side: 'bottom' }"
-              :b24ui="{
-                itemLabel: 'text-(--ui-color-base-1)',
-                itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-                itemTrailingIcon: 'w-[25px] h-[25px]',
-                itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
-              }"
             >
               <B24Button size="sm" color="air-tertiary-no-accent" :icon="SettingIcon" />
             </B24DropdownMenu>
@@ -400,7 +362,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
         </div>
 
         <div
-          class="ps-1.5 relative border-t border-(--ui-color-divider-default) py-3 flex flex-row flex-nowrap gap-1.5 sm:gap-3 items-center justify-between bg-(--ui-color-design-outline-bg) rounded-none sm:rounded-b-lg"
+          class="rounded-none sm:rounded-b-lg ps-1.5 relative border-t border-(--ui-color-divider-default) py-3 flex flex-row flex-nowrap gap-1.5 sm:gap-3 items-center justify-between bg-(--ui-color-design-outline-bg)"
           :class="[isSomeSelect ? 'sticky z-1 -bottom-4 bitrix-mobile:bottom-0' : '']"
         >
           <CustomersDeleteModal :count="table?.tableApi?.getFilteredSelectedRowModel().rows.length">

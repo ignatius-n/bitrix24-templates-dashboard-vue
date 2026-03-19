@@ -5,28 +5,8 @@
  * Custom bg
  */
 @layer base {
-  .light, :root {
-    --air-theme-bg-color: #eef2f4;
-    --ui-btn-background-hover: #162345;
-  }
-
-  /*@todo: after UI update fix*/
-  [data-platform="bitrix-mobile"].light {
-    --air-theme-bg-color: #ffffff;
-  }
-
-  .dark {
-    --air-theme-bg-color: #000000;
-  }
-
-  /*@todo: after UI update fix*/
-  [data-platform="bitrix-mobile"].dark {
-    --air-theme-bg-color: #111111;
-  }
-
   .edge-dark {
     --air-theme-bg-image: url(../bg/astronomical-watercolor.jpg);
-    --air-theme-bg-image-blurred: url(../bg/astronomical-watercolor.jpg);
     --air-theme-bg-position: 0 0;
     --air-theme-bg-size: cover;
     --air-theme-bg-repeat: no-repeat;
@@ -34,21 +14,3 @@
     --air-theme-bg-color: #325ab3;
   }
 }
-
-/*@todo: after UI update fix*/
-body {
-  color: initial !important;
-}
-
-/*@todo: after UI update fix*/
-.light .menu-item-vertical {
-  --menu-item-background-active: var(--ui-color-design-filled-bg);
-  --menu-item-color-active: var(--ui-color-base-white-fixed);
-}
-
-.light .menu-item-vertical-active {
-  --menu-item-background: var(--ui-color-design-filled-bg);
-  --menu-item-color: var(--ui-color-base-white-fixed);
-}
-
-

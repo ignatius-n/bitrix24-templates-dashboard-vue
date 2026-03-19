@@ -42,21 +42,9 @@ const links = [
 </script>
 
 <template>
-  <!-- @todo: after UI update fix :b24ui -->
-  <B24DashboardPanel
-    id="settings"
-    :b24ui="{ body: 'sm:p-4 lg:py-10 scrollbar-transparent' }"
-  >
+  <B24DashboardPanel id="settings" :b24ui="{ body: 'sm:pt-10 scrollbar-transparent' }">
     <template #header>
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardNavbar
-        title="Settings"
-        :b24ui="{
-          root: 'ps-2 lg:ps-4 border-0',
-          right: 'gap-3',
-          title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
-        }"
-      >
+      <B24DashboardNavbar title="Settings">
         <template #right>
           <B24Button
             size="sm"
@@ -65,15 +53,10 @@ const links = [
         </template>
       </B24DashboardNavbar>
 
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardToolbar class="scrollbar-thin" :b24ui="{ root: 'sm:px-4 border-0' }">
-        <!-- @todo: after UI update fix :b24ui -->
+      <B24DashboardToolbar class="scrollbar-thin scrollbar-transparent">
         <B24NavigationMenu
           :items="links"
           class="flex-1"
-          :b24ui="{
-            link: 'leading-7 data-[active]:leading-7 bitrix-mobile:px-3 bitrix-mobile:h-[34px] bitrix-mobile:border-(--ui-color-base-7) bitrix-mobile:text-(--ui-color-base-4) bitrix-mobile:data-[active]:bg-transparent bitrix-mobile:data-[active]:border-(--ui-color-base-2) bitrix-mobile:data-[active]:text-(--ui-color-base-2)'
-          }"
         />
       </B24DashboardToolbar>
     </template>

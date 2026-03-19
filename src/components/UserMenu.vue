@@ -222,22 +222,10 @@ const items = computed<DropdownMenuItem[]>(() => [
 </script>
 
 <template>
-  <!-- @todo: after UI update fix :b24ui -->
   <B24DropdownMenu
     :items="items"
     :content="{ align: 'start', side: 'top', sideOffset: -6, collisionPadding: 12 }"
-    :b24ui="{
-      itemLabel: 'text-(--ui-color-base-1)',
-      itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-      itemTrailingIcon: 'w-[25px] h-[25px]',
-      itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-
-      label: 'bitrix-mobile:pe-0 bitrix-mobile:h-[27px] bitrix-mobile:mt-0 bitrix-mobile:-mb-[12px] bitrix-mobile:[&_[data-slot=&quot;itemLabel&quot;]]:text-(--ui-color-base-5)',
-      item: 'bitrix-mobile:mt-0 bitrix-mobile:pe-2 bitrix-mobile:h-[42px] bitrix-mobile:gap-2 bitrix-mobile:[[data-slot=&quot;item&quot;]+&]:border-t bitrix-mobile:border-t-(--ui-color-divider-vibrant-default) bitrix-mobile:data-highlighted:bg-(--ui-color-bg-state-hover-default) bitrix-mobile:data-[state=open]:bg-(--ui-color-bg-state-hover-default)',
-      separator: 'bitrix-mobile:mx-0 bitrix-mobile:my-0 bitrix-mobile:h-[6px]',
-      content: 'bitrix-mobile:py-0! w-[200px]',
-      viewport: 'w-[200px] max-h-[62vh]'
-    }"
+    :b24ui="{ content: 'w-[200px]', viewport: 'w-[200px] max-h-[62vh]' }"
   >
     <B24Button
       v-bind="{

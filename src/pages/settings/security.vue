@@ -25,20 +25,19 @@ const validate = (state: Partial<PasswordSchema>): FormError[] => {
 </script>
 
 <template>
+  <!-- @todo: B24PageCard after UI update fix :b24ui -->
   <B24PageCard
     title="Password"
     description="Confirm your current password before setting a new one."
     variant="tinted-no-accent"
-    :b24ui="{
-      root: 'rounded-none sm:rounded-3xl bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)'
-    }"
+    :b24ui="{ root: 'rounded-none sm:rounded-3xl bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-02)' }"
     class="mb-4 base-mode"
   >
     <B24Form
       :schema="passwordSchema"
       :state="password"
       :validate="validate"
-      class="flex flex-col gap-4 max-w-[320px]"
+      class="flex flex-col gap-1.5 max-w-[320px]"
     >
       <B24FormField name="current">
         <B24Input
@@ -61,7 +60,7 @@ const validate = (state: Partial<PasswordSchema>): FormError[] => {
       <B24Button
         label="Update"
         color="air-primary"
-        class="w-fit"
+        class="w-fit mt-4"
         type="submit"
       />
     </B24Form>

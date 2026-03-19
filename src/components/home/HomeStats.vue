@@ -33,7 +33,7 @@ const { statsData } = useDealStats()
         <HelpIcon class="hidden lg:flex absolute z-1 right-4 top-4 size-5 cursor-help text-description" />
       </B24Tooltip>
       <div class="flex flex-wrap items-center gap-2">
-        <!-- @todo: fix text-[length:24px] -->
+        <!-- @todo: Prose fix text-[length:24px] -->
         <span class="text-[length:24px] font-semibold text-label text-nowrap">
           {{ stat.formatValue }}
         </span>

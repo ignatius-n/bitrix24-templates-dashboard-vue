@@ -59,24 +59,9 @@ await initPage()
 </script>
 
 <template>
-  <!-- @todo: after UI update fix :b24ui -->
-  <B24DashboardPanel
-    id="home"
-    :b24ui="{
-      root: 'lg:not-last:border-0',
-      body: 'p-4 scrollbar-transparent'
-    }"
-  >
+  <B24DashboardPanel id="home" :b24ui="{ body: 'p-4 sm:pt-4 scrollbar-transparent' }">
     <template #header>
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardNavbar
-        :title="page.title"
-        :b24ui="{
-          root: 'ps-2 lg:ps-4 border-0',
-          right: 'gap-3',
-          title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-medium text-(--ui-color-base-1)'
-        }"
-      >
+      <B24DashboardNavbar :title="page.title">
         <template #right>
           <B24Tooltip text="Notifications" :kbds="['N']">
             <B24Button
@@ -89,7 +74,6 @@ await initPage()
               </B24Chip>
             </B24Button>
           </B24Tooltip>
-          <!-- @todo: add form and slider -->
           <B24Button
             size="sm"
             label="Feedback"
@@ -97,8 +81,7 @@ await initPage()
         </template>
       </B24DashboardNavbar>
 
-      <!-- @todo: after UI update fix :b24ui -->
-      <B24DashboardToolbar class="scrollbar-thin scrollbar-transparent" :b24ui="{ root: 'sm:px-4 border-0' }">
+      <B24DashboardToolbar class="scrollbar-thin scrollbar-transparent">
         <template #left>
           <B24Button
             :icon="DatabaseIcon"
@@ -116,17 +99,10 @@ await initPage()
     </template>
 
     <template #body>
-      <!-- @todo: after UI update fix :b24ui -->
       <B24DropdownMenu
         v-if="!page.addButton.isOnlyBitrixMobile || (page.addButton.isOnlyBitrixMobile && isBxMobile)"
         :items="page.addButton.items"
         :content="{ align: 'end' }"
-        :b24ui="{
-          itemLabel: 'text-(--ui-color-base-1)',
-          itemLeadingIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)',
-          itemTrailingIcon: 'w-[25px] h-[25px]',
-          itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
-        }"
       >
         <B24Button
           :icon="PlusLIcon"

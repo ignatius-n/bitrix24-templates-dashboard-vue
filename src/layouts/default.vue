@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import type { NavigationMenuItem, CommandPaletteGroup, CommandPaletteItem } from '@bitrix24/b24ui-nuxt'
 import { computed, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStorage } from '@vueuse/core'
-import type { NavigationMenuItem, CommandPaletteGroup, CommandPaletteItem } from '@bitrix24/b24ui-nuxt'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
 import MessagesIcon from '@bitrix24/b24icons-vue/outline/MessagesIcon'
 import GroupIcon from '@bitrix24/b24icons-vue/outline/GroupIcon'
@@ -173,20 +173,14 @@ onMounted(() => {
 
 <template>
   <B24DashboardGroup unit="px" storage="local">
-    <!-- @todo: after UI update fix bg-(--air-theme-bg-color)  --ui-color-bg-content-primary --leftmenu-group-stroke -->
+    <!-- @todo: NEW DashboardSidebar fix drawer -> modal -->
     <B24DashboardSidebar
       id="default"
       v-model:open="open"
       mode="drawer"
       collapsible
       resizable
-      class="backdrop-blur-md edge-dark:bg-(--ui-color-base-0)/5 light:[--leftmenu-group-stroke:var(--ui-color-base-30)]"
-      :b24ui="{
-        root: 'border-0 border-(--ui-color-divider-accent)',
-        header: 'ps-4 pe-4',
-        body: 'ps-4 pe-4',
-        footer: 'ps-4 pe-4 lg:border-t lg:border-(--ui-color-divider-default) light:lg:border-(--ui-color-base-30)'
-      }"
+      class="border-e-1"
     >
       <template #header="{ collapsed }">
         <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
@@ -198,26 +192,19 @@ onMounted(() => {
           :collapsed="collapsed"
           class="opacity-70 hover:opacity-100"
         />
-        <!-- @todo: after UI update fix && see css -->
+
         <B24NavigationMenu
           :collapsed="collapsed"
           :items="links[0]"
           orientation="vertical"
           popover
-          :b24ui="{
-            root: 'ps-0 rtl:pe-0 pe-0',
-            link: 'data-[active]:font-semibold'
-          }"
         />
-        <!-- @todo: after UI update fix && see css -->
+
         <B24NavigationMenu
           :collapsed="collapsed"
           :items="links[1]"
           orientation="vertical"
           class="mt-auto"
-          :b24ui="{
-            root: 'ps-0 rtl:pe-0 pe-0'
-          }"
         />
       </template>
 
@@ -226,7 +213,6 @@ onMounted(() => {
       </template>
     </B24DashboardSidebar>
 
-    <!-- @todo: after UI update fix -->
     <B24DashboardSearch :groups="groups" :color-mode="false" />
 
     <RouterView />

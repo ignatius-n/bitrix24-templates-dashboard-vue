@@ -116,7 +116,6 @@ const meta: TableMeta<Sale> = {
     class="base-mode"
     :b24ui="{ root: 'overflow-visible', body: '!px-0 !pt-0 !pb-3' }"
   >
-    <!-- @todo: after UI update fix :b24ui -->
     <B24Table
       :loading="isLoading"
       loading-animation="elastic"
@@ -124,14 +123,7 @@ const meta: TableMeta<Sale> = {
       :columns="columns"
       :meta="meta"
       class="shrink-0"
-      :b24ui="{
-        base: 'table-fixed border-separate border-spacing-0',
-        thead: '[&>tr]:[&>th]:h-[45px]',
-        tbody: '[&>tr]:last:[&>td]:border-b-0',
-        th: 'py-2 border-b border-(--ui-color-divider-default)',
-        td: 'border-b border-(--ui-color-divider-default)',
-        separator: 'h-0'
-      }"
+      :b24ui="{ separator: 'h-0' }"
     />
   </B24Card>
 </template>

@@ -56,7 +56,7 @@ async function onChange() {
 
 <template>
   <div v-for="(section, index) in sections" :key="index">
-    <!-- @todo: after UI update fix :b24ui -->
+    <!-- @todo: B24PageCard after UI update fix :b24ui -->
     <B24PageCard
       :title="section.title"
       :description="section.description"
@@ -70,7 +70,7 @@ async function onChange() {
         description: 'text-(--ui-color-palette-gray-70)'
       }"
     >
-      <SettingIcon class="flex-1 size-[80px]" />
+      <SettingIcon class="flex-1 ml-auto size-[80px]" />
     </B24PageCard>
     <B24PageCard
       variant="outline-no-accent"

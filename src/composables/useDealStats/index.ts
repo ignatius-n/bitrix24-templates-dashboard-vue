@@ -60,7 +60,7 @@ const _useDealStats = () => {
 
   /**
    * Default currency
-   * @todo improved by getting it from portal settings
+   * @todo: jsSdk improved by getting it from portal settings
    */
   const defaultCurrency = computed(() => {
     if (typeof window !== 'undefined' && window.navigator?.language.includes('ru')) {

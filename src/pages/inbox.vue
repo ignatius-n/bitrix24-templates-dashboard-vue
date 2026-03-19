@@ -57,15 +57,7 @@ const isMobile = breakpoints.smaller('lg')
     resizable
     class="base-mode bg-(--ui-color-bg-content-primary)"
   >
-    <!-- @todo: after UI update fix :b24ui -->
-    <B24DashboardNavbar
-      title="Inbox"
-      :b24ui="{
-        root: 'ps-2 lg:ps-4',
-        right: 'gap-3',
-        title: 'text-[length:25px] bitrix-mobile:text-[length:18px] font-(--ui-font-weight-medium) text-(--ui-color-base-1)'
-      }"
-    >
+    <B24DashboardNavbar title="Inbox">
       <template #trailing>
         <B24Badge :label="filteredMails.length" color="air-secondary" />
       </template>

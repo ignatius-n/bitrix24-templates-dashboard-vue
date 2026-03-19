@@ -56,16 +56,9 @@ const items = [
           :b24ui="{ value: 'capitalize', item: 'capitalize' }"
         />
 
-        <!-- @todo: after UI update fix :b24ui -->
         <B24DropdownMenu
           :items="items"
           :content="{ align: 'end', side: 'bottom', sideOffset: -2 }"
-          :b24ui="{
-            itemLabel: 'text-(--ui-color-base-1)',
-            itemLeadingIcon: 'w-[25px] h-[25px] dd-text-(--ui-color-base-5)',
-            itemTrailingIcon: 'w-[25px] h-[25px]',
-            itemLabelExternalIcon: 'w-[25px] h-[25px] text-(--ui-color-base-5)'
-          }"
         >
           <B24Button
             :icon="MoreVerticalLIcon"

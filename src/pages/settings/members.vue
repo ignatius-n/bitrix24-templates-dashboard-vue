@@ -30,7 +30,7 @@ const filteredMembers = computed(() => {
         description: 'text-(--ui-color-palette-gray-70)'
       }"
     >
-      <SettingIcon class="flex-1 size-[80px]" />
+      <SettingIcon class="flex-1 ml-auto size-[80px]" />
     </B24PageCard>
     <B24PageCard
       variant="outline-no-accent"
