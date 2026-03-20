@@ -33,6 +33,7 @@ const columnFilters = ref([{
 const columnVisibility = ref()
 const rowSelection = ref({ 3: true })
 
+// @todo: change mock
 const { data, isFetching } = useFetch('https://dashboard-template.nuxt.dev/api/customers', { initialData: [] }).json<User[]>()
 
 function onSelect(_: Event, row: TableRow<User>) {
@@ -298,7 +299,6 @@ const isSomeSelect = computed<boolean>((): boolean => {
         />
       </div>
       <div class="relative base-mode shrink-0">
-        <!-- @todo: NEW update footer -->
         <B24Table
           ref="table"
           v-model:sorting="sorting"

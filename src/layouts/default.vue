@@ -173,7 +173,7 @@ onMounted(() => {
 
 <template>
   <B24DashboardGroup unit="px" storage="local">
-    <!-- @todo: NEW DashboardSidebar fix drawer -> modal -->
+    <!-- @todo: drawer -> modal -->
     <B24DashboardSidebar
       id="default"
       v-model:open="open"
