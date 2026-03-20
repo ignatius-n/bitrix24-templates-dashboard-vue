@@ -1,8 +1,8 @@
 <template>
   <!-- Main container: fixed screen height, no scrolling -->
-  <div class="flex flex-row h-screen  overflow-hidden">
+  <div class="flex flex-row h-screen overflow-hidden">
     <!-- Sidebar: visible only on desktop -->
-    <aside class="hidden lg:flex flex-col w-[240px] shrink-0 border-r border-(--ui-color-divider-default) bg-(--ui-color-bg-content-primary) light:bg-(--ui-color-gray-01) p-5">
+    <aside class="hidden lg:flex flex-col w-[240px] shrink-0 border-r border-(--ui-color-divider-default) p-5">
       <div class="flex items-center gap-3 px-2 mb-8">
         <B24Skeleton accent="accent" class="size-8 rounded-lg" />
         <B24Skeleton accent="default" class="h-5 w-24" />

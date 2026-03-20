@@ -52,8 +52,12 @@ async function onSubmit() {
 </script>
 
 <template>
-  <B24DashboardPanel id="inbox-2" class="base-mode bg-(--ui-color-bg-content-primary)">
-    <B24DashboardNavbar :title="mail.subject" :toggle="false">
+  <B24DashboardPanel id="inbox-2" class="base-mode bg-(--ui-color-bg-content-primary) lg:border-e lg:border-(--ui-color-divider-default)">
+    <B24DashboardNavbar
+      :title="mail.subject"
+      :toggle="false"
+      class="border-b border-(--ui-color-divider-default)"
+    >
       <template #leading>
         <B24Button
           :icon="CrossLIcon"
@@ -115,9 +119,9 @@ async function onSubmit() {
     </div>
 
     <div class="shrink-0 max-h-[250px] bitrix-mobile:max-h-[230px] p-3 sm:p-6 sm:py-4 sm:max-h-max overflow-y-auto scrollbar-thin">
-      <p class="whitespace-pre-wrap">
+      <ProseP class="whitespace-pre-wrap">
         {{ mail.body }}
-      </p>
+      </ProseP>
     </div>
 
     <!-- @todo: B24PageCard after UI update fix :b24ui -->

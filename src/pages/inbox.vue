@@ -57,7 +57,10 @@ const isMobile = breakpoints.smaller('lg')
     resizable
     class="base-mode bg-(--ui-color-bg-content-primary)"
   >
-    <B24DashboardNavbar title="Inbox">
+    <B24DashboardNavbar
+      title="Inbox"
+      class="border-b border-(--ui-color-divider-default)"
+    >
       <template #trailing>
         <B24Badge :label="filteredMails.length" color="air-secondary" />
       </template>
@@ -76,8 +79,8 @@ const isMobile = breakpoints.smaller('lg')
   </B24DashboardPanel>
 
   <InboxMail v-if="selectedMail" :mail="selectedMail" @close="selectedMail = null" />
-  <div v-else class="hidden base-mode bg-(--ui-color-bg-content-primary) lg:flex flex-1 items-center justify-center">
-    <MailOpenIcon class="size-32 text-dimmed" />
+  <div v-else class="hidden base-mode bg-(--ui-color-bg-content-primary) lg:flex flex-1 items-center justify-center border-s border-(--ui-color-divider-default)">
+    <MailOpenIcon class="size-64 text-dimmed" />
   </div>
 
   <B24Modal

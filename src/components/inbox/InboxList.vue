@@ -53,7 +53,6 @@ defineShortcuts({
       <div
         class="p-4 sm:px-6 text-sm cursor-pointer border-l-2 transition-colors"
         :class="[
-          mail.unread ? 'text-highlighted' : 'text-toned',
           selectedMail && selectedMail.id === mail.id
             ? 'border-(--ui-color-design-selection-stroke) bg-(--ui-color-design-selection-bg)'
             : 'border-(--ui-color-divider-accent) hover:border-(--ui-color-design-selection-stroke) hover:bg-(--ui-color-design-selection-bg)'
@@ -62,17 +61,19 @@ defineShortcuts({
       >
         <div class="flex items-center justify-between" :class="[mail.unread && 'font-semibold']">
           <div class="flex items-center gap-3">
-            {{ mail.from.name }}
+            <ProseP small accent="less" class="mb-0">
+              {{ mail.from.name }}
+            </ProseP>
 
             <B24Chip v-if="mail.unread" />
           </div>
 
-          <span>{{ isToday(new Date(mail.date)) ? format(new Date(mail.date), 'HH:mm') : format(new Date(mail.date), 'dd MMM') }}</span>
+          <ProseP small accent="less" class="mb-0">{{ isToday(new Date(mail.date)) ? format(new Date(mail.date), 'HH:mm') : format(new Date(mail.date), 'dd MMM') }}</ProseP>
         </div>
-        <ProseP accent="more" class="truncate" :class="[mail.unread && 'font-semibold']">
+        <ProseP class="mb-0 truncate" :class="[mail.unread ? 'font-semibold text-label' : 'text-legend']">
           {{ mail.subject }}
         </ProseP>
-        <ProseP accent="less" class="line-clamp-1">
+        <ProseP class="mb-0 line-clamp-1 text-description">
           {{ mail.body }}
         </ProseP>
       </div>
