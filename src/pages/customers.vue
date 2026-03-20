@@ -363,7 +363,7 @@ const isSomeSelect = computed<boolean>((): boolean => {
 
         <div
           class="rounded-none sm:rounded-b-lg ps-1.5 relative border-t border-(--ui-color-divider-default) py-3 flex flex-row flex-nowrap gap-1.5 sm:gap-3 items-center justify-between bg-(--ui-color-design-outline-bg)"
-          :class="[isSomeSelect ? 'sticky z-1 -bottom-4 bitrix-mobile:bottom-0' : '']"
+          :class="[isSomeSelect ? 'sticky z-1 bottom-0 sm:-bottom-4 bitrix-mobile:bottom-0' : '']"
         >
           <CustomersDeleteModal :count="table?.tableApi?.getFilteredSelectedRowModel().rows.length">
             <B24Button
