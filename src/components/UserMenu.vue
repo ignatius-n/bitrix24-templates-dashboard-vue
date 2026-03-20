@@ -204,12 +204,12 @@ const items = computed<DropdownMenuItem[]>(() => [
     type: 'separator'
   },
   {
-    label: 'B24 Ui',
+    label: 'B24 UI',
     to: 'https://bitrix24.github.io/b24ui/',
     target: '_blank'
   },
   {
-    label: 'B24 Js Sdk',
+    label: 'B24 JsSdk',
     to: 'https://bitrix24.github.io/b24jssdk/',
     target: '_blank'
   },

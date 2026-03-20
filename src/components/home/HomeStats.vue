@@ -8,7 +8,7 @@ const { statsData } = useDealStats()
 </script>
 
 <template>
-  <B24PageGrid class="lg:grid-cols-4 gap-4 sm:gap-6">
+  <B24PageGrid class="lg:grid-cols-4 gap-4">
     <B24PageCard
       v-for="(stat, index) in statsData"
       :key="index"
@@ -33,8 +33,7 @@ const { statsData } = useDealStats()
         <HelpIcon class="hidden lg:flex absolute z-1 right-4 top-4 size-5 cursor-help text-description" />
       </B24Tooltip>
       <div class="flex flex-wrap items-center gap-2">
-        <!-- @todo: Prose fix text-[length:24px] -->
-        <span class="text-[length:24px] font-semibold text-label text-nowrap">
+        <span class="text-[length:22px] text-label text-nowrap">
           {{ stat.formatValue }}
         </span>
 
