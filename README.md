@@ -48,10 +48,13 @@ Locally preview production build:
 pnpm preview
 ```
 
+> [!NOTE]
+> The idea is that this template can be used as a full-fledged Bitrix24 application. And without connecting to Bitrix24, it can display test data.
+> As soon as we do this, we'll add instructions here.
 
 # As B24 App
 
-1. **used scopes:** `crm`, `user_brief`, `currency`
+1. **used scopes:** `crm`, `user_brief`
 
 # Translate
 
