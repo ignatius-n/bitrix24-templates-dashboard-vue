@@ -81,104 +81,104 @@ const steps = ref<Record<string, IStep>>({
   //     ])
   //   }
   // },
-  placement: {
-    caption: t('page.install.step.placement.caption'),
-    action: async () => {
-      const key = {
-        placement: 'CRM_DEAL_DETAIL_TAB',
-        handler: `${appUrl}/handler/placement-crm-deal-detail-tab`
-      }
-      const exists = (steps.value.init?.data?.placementList as { placement: string, handler: string }[]).some(item => item.placement === key.placement && item.handler === key.handler )
-      if (exists) {
-        await $b24.actions.v2.batch.make({
-          calls: [
-            {
-              method: 'placement.unbind',
-              params: {
-                PLACEMENT: key.placement
-              }
-            },
-            {
-              method: 'placement.bind',
-              params: {
-                PLACEMENT: key.placement,
-                HANDLER: key.handler,
-                TITLE: '[demo] Some Tab',
-                OPTIONS: {
-                  errorHandlerUrl: `${appUrl}/handler/background-some-problem`
-                }
-              }
-            }
-          ],
-          options: {
-            isHaltOnError: true
-          }
-        })
-
-        return
-      }
-
-      await $b24.actions.v2.batch.make({
-        calls: [
-          {
-            method: 'placement.bind',
-            params: {
-              PLACEMENT: key.placement,
-              HANDLER: key.handler,
-              TITLE: '[demo] Some Tab',
-              OPTIONS: {
-                errorHandlerUrl: `${appUrl}/handler/background-some-problem`
-              }
-            }
-          }
-        ],
-        options: {
-          isHaltOnError: true
-        }
-      })
-    }
-  },
-  userFields: {
-    caption: t('page.install.step.userFields.caption'),
-    action: async () => {
-      const typeId = `some_type_${import.meta.dev ? 'dev' : 'prod'}`
-
-      const exists = (steps.value.init?.data?.userFieldTypeList as { USER_TYPE_ID: string }[]).some(item => item.USER_TYPE_ID === typeId)
-      if (exists) {
-        await $b24.callBatch([
-          {
-            method: 'userfieldtype.update',
-            params: {
-              USER_TYPE_ID: typeId,
-              HANDLER: `${appUrl}/handler/uf.demo`,
-              TITLE: `[${import.meta.dev ? 'dev' : 'prod'}] Some Type`,
-              DESCRIPTION: `Some Description`,
-              OPTIONS: {
-                height: 105
-              }
-            }
-          }
-        ], false)
-
-        return
-      }
-
-      await $b24.callBatch([
-        {
-          method: 'userfieldtype.add',
-          params: {
-            USER_TYPE_ID: typeId,
-            HANDLER: `${appUrl}/handler/uf.demo`,
-            TITLE: `[${import.meta.dev ? 'dev' : 'prod'}] Some Type`,
-            DESCRIPTION: `Some Description`,
-            OPTIONS: {
-              height: 105
-            }
-          }
-        }
-      ], false)
-    }
-  },
+  // placement: {
+  //   caption: t('page.install.step.placement.caption'),
+  //   action: async () => {
+  //     const key = {
+  //       placement: 'CRM_DEAL_DETAIL_TAB',
+  //       handler: `${appUrl}/handler/placement-crm-deal-detail-tab`
+  //     }
+  //     const exists = (steps.value.init?.data?.placementList as { placement: string, handler: string }[]).some(item => item.placement === key.placement && item.handler === key.handler )
+  //     if (exists) {
+  //       await $b24.actions.v2.batch.make({
+  //         calls: [
+  //           {
+  //             method: 'placement.unbind',
+  //             params: {
+  //               PLACEMENT: key.placement
+  //             }
+  //           },
+  //           {
+  //             method: 'placement.bind',
+  //             params: {
+  //               PLACEMENT: key.placement,
+  //               HANDLER: key.handler,
+  //               TITLE: '[demo] Some Tab',
+  //               OPTIONS: {
+  //                 errorHandlerUrl: `${appUrl}/handler/background-some-problem`
+  //               }
+  //             }
+  //           }
+  //         ],
+  //         options: {
+  //           isHaltOnError: true
+  //         }
+  //       })
+  //
+  //       return
+  //     }
+  //
+  //     await $b24.actions.v2.batch.make({
+  //       calls: [
+  //         {
+  //           method: 'placement.bind',
+  //           params: {
+  //             PLACEMENT: key.placement,
+  //             HANDLER: key.handler,
+  //             TITLE: '[demo] Some Tab',
+  //             OPTIONS: {
+  //               errorHandlerUrl: `${appUrl}/handler/background-some-problem`
+  //             }
+  //           }
+  //         }
+  //       ],
+  //       options: {
+  //         isHaltOnError: true
+  //       }
+  //     })
+  //   }
+  // },
+  // userFields: {
+  //   caption: t('page.install.step.userFields.caption'),
+  //   action: async () => {
+  //     const typeId = `some_type_${import.meta.dev ? 'dev' : 'prod'}`
+  //
+  //     const exists = (steps.value.init?.data?.userFieldTypeList as { USER_TYPE_ID: string }[]).some(item => item.USER_TYPE_ID === typeId)
+  //     if (exists) {
+  //       await $b24.callBatch([
+  //         {
+  //           method: 'userfieldtype.update',
+  //           params: {
+  //             USER_TYPE_ID: typeId,
+  //             HANDLER: `${appUrl}/handler/uf.demo`,
+  //             TITLE: `[${import.meta.dev ? 'dev' : 'prod'}] Some Type`,
+  //             DESCRIPTION: `Some Description`,
+  //             OPTIONS: {
+  //               height: 105
+  //             }
+  //           }
+  //         }
+  //       ], false)
+  //
+  //       return
+  //     }
+  //
+  //     await $b24.callBatch([
+  //       {
+  //         method: 'userfieldtype.add',
+  //         params: {
+  //           USER_TYPE_ID: typeId,
+  //           HANDLER: `${appUrl}/handler/uf.demo`,
+  //           TITLE: `[${import.meta.dev ? 'dev' : 'prod'}] Some Type`,
+  //           DESCRIPTION: `Some Description`,
+  //           OPTIONS: {
+  //             height: 105
+  //           }
+  //         }
+  //       }
+  //     ], false)
+  //   }
+  // },
   // crm: {
   //   caption: t('page.install.step.crm.caption'),
   //   action: async () => {
