@@ -5,7 +5,7 @@ import type { B24Frame } from '@bitrix24/b24jssdk'
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 // @todo test this ////
-import { definePage } from 'vue-router/auto'
+// import { definePage } from 'vue-router/auto'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import { useB24 } from '../composables/useB24'
@@ -15,7 +15,7 @@ import Market1Icon from '@bitrix24/b24icons-vue/main/Market1Icon'
 
 const { t } = useI18n()
 useHead({ title: t('page.install.seo.title') })
-definePage({ meta: { layout: 'clear' } })
+// definePage({ meta: { layout: 'clear' } })
 
 // region Init ////
 const router = useRouter()
@@ -384,3 +384,8 @@ onMounted(async () => {
     </template>
   </B24DashboardPanel>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: clear
+</route>
