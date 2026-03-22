@@ -2,6 +2,7 @@
 import type { B24Frame } from '@bitrix24/b24jssdk'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
 import { computed } from 'vue'
+// @todo fix this - auto Import like useConfetti ////
 import { useColorMode } from '#imports'
 import { useB24 } from '../composables/useB24'
 import { useDashboard } from '../composables/useDashboard'

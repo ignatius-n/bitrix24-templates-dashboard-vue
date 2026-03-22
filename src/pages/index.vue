@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { B24Frame } from '@bitrix24/b24jssdk'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useHead } from '@unhead/vue'
 import { useDealStats } from '../composables/useDealStats'
 import { useDashboard } from '../composables/useDashboard'
 import { useB24 } from '../composables/useB24'
@@ -11,8 +12,10 @@ import PlusLIcon from '@bitrix24/b24icons-vue/outline/PlusLIcon'
 import SendIcon from '@bitrix24/b24icons-vue/outline/SendIcon'
 import AddPersonIcon from '@bitrix24/b24icons-vue/outline/AddPersonIcon'
 import DatabaseIcon from '@bitrix24/b24icons-vue/outline/DatabaseIcon'
+import Market1Icon from '@bitrix24/b24icons-vue/main/Market1Icon'
 
 const { t } = useI18n()
+useHead({ title: t('page.index.seo.title') })
 const { period, range, isLoading, loadDeals } = useDealStats()
 
 const { isNotificationsSlideoverOpen, isBxMobile } = useDashboard()
@@ -23,25 +26,20 @@ const isUseB24 = computed<boolean>(() => {
   return b24Instance.isInit()
 })
 
-const page = computed(() => {
-  return {
-    title: t('page.index.seo.title'),
-    addButton: {
-      isOnlyBitrixMobile: false,
-      items: [
-        {
-          label: 'New mail',
-          icon: SendIcon,
-          to: '/inbox'
-        },
-        {
-          label: 'New customer',
-          icon: AddPersonIcon,
-          to: '/customers'
-        }
-      ] satisfies DropdownMenuItem[]
+const addButton = ref({
+  isOnlyBitrixMobile: false,
+  items: [
+    {
+      label: 'New mail',
+      icon: SendIcon,
+      to: '/inbox'
+    },
+    {
+      label: 'New customer',
+      icon: AddPersonIcon,
+      to: '/customers'
     }
-  }
+  ] satisfies DropdownMenuItem[]
 })
 
 async function initPage() {
@@ -50,9 +48,9 @@ async function initPage() {
   }
 
   /**
-   * Tracking locale via watch is not required, since in the Bitrix24 interface, changing the language initiates a full page reload.
+   * @memo Tracking locale via watch is not required, since in the Bitrix24 interface, changing the language initiates a full page reload.
    */
-  $b24.parent.setTitle(page.value.title)
+  $b24.parent.setTitle(t('page.index.seo.title'))
 }
 
 await initPage()
@@ -61,8 +59,20 @@ await initPage()
 <template>
   <B24DashboardPanel id="home" :b24ui="{ body: 'p-4 sm:pt-4 scrollbar-transparent' }">
     <template #header>
-      <B24DashboardNavbar :title="page.title">
+      <B24DashboardNavbar :title="$t('page.index.seo.title')">
         <template #right>
+          <B24Button
+            v-if="!isUseB24"
+            size="sm"
+            to="/install"
+            label="Mock Installation"
+            color="air-boost"
+            :icon="Market1Icon"
+          />
+          <B24Button
+            size="sm"
+            label="Feedback"
+          />
           <B24Tooltip text="Notifications" :kbds="['N']">
             <B24Button
               class=""
@@ -74,10 +84,6 @@ await initPage()
               </B24Chip>
             </B24Button>
           </B24Tooltip>
-          <B24Button
-            size="sm"
-            label="Feedback"
-          />
         </template>
       </B24DashboardNavbar>
 
@@ -100,8 +106,8 @@ await initPage()
 
     <template #body>
       <B24DropdownMenu
-        v-if="!page.addButton.isOnlyBitrixMobile || (page.addButton.isOnlyBitrixMobile && isBxMobile)"
-        :items="page.addButton.items"
+        v-if="!addButton.isOnlyBitrixMobile || (addButton.isOnlyBitrixMobile && isBxMobile)"
+        :items="addButton.items"
         :content="{ align: 'end' }"
       >
         <B24Button

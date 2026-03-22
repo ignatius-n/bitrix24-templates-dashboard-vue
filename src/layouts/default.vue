@@ -12,8 +12,8 @@ import TelegramIcon from '@bitrix24/b24icons-vue/outline/TelegramIcon'
 import GitHubIcon from '@bitrix24/b24icons-vue/social/GitHubIcon'
 import HamburgerMenuIcon from '@bitrix24/b24icons-vue/outline/HamburgerMenuIcon'
 
-const toast = useToast()
 const route = useRoute()
+const toast = useToast()
 
 const open = ref(false)
 
@@ -147,7 +147,7 @@ const groups = computed<CommandPaletteGroup[]>(() => [
 const cookie = useStorage('cookie-consent', 'pending')
 if (cookie.value !== 'accepted') {
   toast.add({
-    title: 'We use first-party cookies to enhance your experience on our website.',
+    title: 'We use first-party cookies to enhance your experience on our app.',
     duration: 0,
     close: false,
     actions: [
