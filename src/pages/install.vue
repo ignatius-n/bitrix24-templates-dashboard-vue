@@ -10,7 +10,7 @@ import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import { useB24 } from '../composables/useB24'
 import { sleepAction } from '../utils'
-import { withoutTrailingSlash } from 'ufo'
+// import { withoutTrailingSlash } from 'ufo'
 import Market1Icon from '@bitrix24/b24icons-vue/main/Market1Icon'
 
 const { t } = useI18n()
