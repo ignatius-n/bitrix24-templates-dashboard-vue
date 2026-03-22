@@ -275,7 +275,7 @@ async function makeInit(): Promise<void> {
         placement: string
         userId: number
         handler: string
-        options: any
+        options: unknown
         title: string
         description: string
       }[]
@@ -344,7 +344,7 @@ onMounted(async () => {
       stepCode.value = key
       await step.action()
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error)
     throw error
   }

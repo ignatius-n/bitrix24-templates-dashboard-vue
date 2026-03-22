@@ -8,7 +8,7 @@ export type Semantic = 'P' | 'S' | 'F'
 export interface IStep {
   action: () => Promise<void>
   caption?: string
-  data?: Record<string, any>
+  data?: Record<string, unknown>
 }
 
 export interface User {

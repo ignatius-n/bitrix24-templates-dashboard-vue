@@ -12,7 +12,6 @@ export default ts.config(
       }
     },
     rules: {
-      "@typescript-eslint/no-explicit-any": "warn",
       'vue/multi-word-component-names': 'off',
       'vue/max-attributes-per-line': ['error', { singleline: 3 }],
       'no-undef': 'off'
