@@ -152,8 +152,6 @@ const items = computed<DropdownMenuItem[]>(() => [
         onSelect(e: Event) {
           e.preventDefault()
           colorMode.preference = 'system'
-
-          console.warn(colorMode.value)
         }
       },
       {

@@ -1,11 +1,11 @@
 import type { DataRecord, Period, Range, Sale, Stat } from '../../types'
 import { randomFrom, randomInt } from '../../utils'
 import { formatCurrency } from './formatters'
+import { getDatesByPeriod } from './helpers.ts'
 import ContactIcon from '@bitrix24/b24icons-vue/outline/ContactIcon'
 import GraphsDiagramIcon from '@bitrix24/b24icons-vue/outline/GraphsDiagramIcon'
 import WalletIcon from '@bitrix24/b24icons-vue/outline/WalletIcon'
 import ShoppingCartIcon from '@bitrix24/b24icons-vue/outline/ShoppingCartIcon'
-import {getDatesByPeriod} from "./helpers.ts";
 
 /**
  * Generates mock data for statistics cards.

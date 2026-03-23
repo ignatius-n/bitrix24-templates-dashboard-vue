@@ -118,8 +118,7 @@ const links = computed<NavigationMenuItem[][]>(() => [
       icon: GitHubIcon,
       to: 'https://github.com/bitrix24/templates-dashboard-vue',
       target: '_blank'
-    },
-
+    }
   ]
 ])
 
@@ -160,7 +159,7 @@ if (cookie.value !== 'accepted') {
       },
       {
         label: 'Opt out',
-        color: 'air-secondary-no-accent',
+        color: 'air-secondary-no-accent'
       }
     ]
   })
@@ -184,7 +183,7 @@ onMounted(() => {
     >
       <template #header="{ collapsed }">
         <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />
-        <Title v-show="!collapsed" />
+        <AppTitle v-show="!collapsed" />
       </template>
 
       <template #default="{ collapsed }">
