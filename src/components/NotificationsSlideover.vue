@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { Notification } from '../types'
 import { useFetch, formatTimeAgo } from '@vueuse/core'
 import { useDashboard } from '../composables/useDashboard'
-import type { Notification } from '../types'
 
 const { isNotificationsSlideoverOpen, isBxMobile } = useDashboard()
 
