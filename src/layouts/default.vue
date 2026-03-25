@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem, CommandPaletteGroup, CommandPaletteItem } from '@bitrix24/b24ui-nuxt'
-import { computed, ref, onMounted } from 'vue'
+import type { Ref } from 'vue'
+import { computed, ref, inject, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStorage } from '@vueuse/core'
 import HomeIcon from '@bitrix24/b24icons-vue/outline/HomeIcon'
@@ -16,6 +17,7 @@ const route = useRoute()
 const toast = useToast()
 
 const open = ref(false)
+const isLoading = inject<Ref<boolean>>('isLoading', ref(false))
 
 const isNeedChangeTarget = ref(false)
 const tgLink = computed(() => {
@@ -171,7 +173,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <B24DashboardGroup unit="px" storage="local">
+  <HomeLoader v-if="isLoading" />
+  <B24DashboardGroup
+    v-else
+    unit="px"
+    storage="local"
+  >
     <!-- @todo: after UI update fix body -->
     <B24DashboardSidebar
       id="default"
@@ -180,9 +187,7 @@ onMounted(() => {
       collapsible
       resizable
       class="border-e-1"
-      :b24ui="{
-        body: 'light:[--leftmenu-group-stroke:var(--ui-color-base-30)]'
-      }"
+      :b24ui="{ body: 'light:[--leftmenu-group-stroke:var(--ui-color-base-30)]' }"
     >
       <template #header="{ collapsed }">
         <B24DashboardSidebarCollapse :icon="HamburgerMenuIcon" class="size-9 px-2" />

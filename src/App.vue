@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { B24Frame, Result } from '@bitrix24/b24jssdk'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, provide, readonly, onMounted } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useI18n } from 'vue-i18n'
 import * as locales from '@bitrix24/b24ui-nuxt/locale'
@@ -25,6 +25,8 @@ const currentLocaleData = computed(() => {
 })
 
 useHead({ htmlAttrs: { lang: currentLocaleData.value.locale } })
+
+provide('isLoading', readonly(isLoading))
 
 onMounted(async () => {
   const result: Result = await b24Instance.init()
@@ -51,8 +53,7 @@ onMounted(async () => {
 <template>
   <Suspense>
     <B24App :toaster="toaster" :locale="currentLocaleData">
-      <HomeLoader v-if="isLoading" />
-      <RouterView v-else />
+      <RouterView />
     </B24App>
   </Suspense>
 </template>
