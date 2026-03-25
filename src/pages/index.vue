@@ -77,6 +77,7 @@ await initPage()
           <B24Tooltip text="Notifications" :kbds="['N']">
             <B24Button
               size="sm"
+              class="pe-1"
               color="air-tertiary-no-accent"
               :b24ui="{ baseLine: 'ps-[2px] pe-[2px]' }"
               @click="isNotificationsSlideoverOpen = true"
