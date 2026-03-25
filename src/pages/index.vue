@@ -59,7 +59,7 @@ await initPage()
 <template>
   <B24DashboardPanel id="home" :b24ui="{ body: 'p-4 sm:pt-4 scrollbar-transparent' }">
     <template #header>
-      <B24DashboardNavbar :title="$t('page.index.seo.title')">
+      <B24DashboardNavbar :title="t('page.index.seo.title')">
         <template #right>
           <B24Button
             v-if="!isUseB24"
@@ -68,6 +68,7 @@ await initPage()
             label="Mock Installation"
             color="air-boost"
             :icon="Market1Icon"
+            :b24ui="{ label: 'hidden sm:block', baseLine: 'ps-[5px] pe-[5px] sm:pe-[9px]' }"
           />
           <B24Button
             size="sm"
@@ -75,11 +76,12 @@ await initPage()
           />
           <B24Tooltip text="Notifications" :kbds="['N']">
             <B24Button
-              class=""
+              size="sm"
               color="air-tertiary-no-accent"
+              :b24ui="{ baseLine: 'ps-[2px] pe-[2px]' }"
               @click="isNotificationsSlideoverOpen = true"
             >
-              <B24Chip color="air-primary-alert">
+              <B24Chip inset color="air-primary-alert">
                 <Bell1Icon class="size-7 shrink-0" />
               </B24Chip>
             </B24Button>
