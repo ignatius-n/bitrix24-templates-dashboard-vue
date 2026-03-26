@@ -18,7 +18,8 @@ const { t } = useI18n()
 useHead({ title: t('page.index.seo.title') })
 const { period, range, isLoading, loadDeals } = useDealStats()
 
-const { isNotificationsSlideoverOpen, isBxMobile } = useDashboard()
+const { isBitrixMobile } = useDevice()
+const { isNotificationsSlideoverOpen } = useDashboard()
 const b24Instance = useB24()
 
 const $b24 = b24Instance.get() as B24Frame
@@ -109,7 +110,7 @@ await initPage()
 
     <template #body>
       <B24DropdownMenu
-        v-if="!addButton.isOnlyBitrixMobile || (addButton.isOnlyBitrixMobile && isBxMobile)"
+        v-if="!addButton.isOnlyBitrixMobile || (addButton.isOnlyBitrixMobile && isBitrixMobile)"
         :items="addButton.items"
         :content="{ align: 'end' }"
       >

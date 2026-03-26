@@ -3,7 +3,8 @@ import type { Notification } from '../types'
 import { useFetch, formatTimeAgo } from '@vueuse/core'
 import { useDashboard } from '../composables/useDashboard'
 
-const { isNotificationsSlideoverOpen, isBxMobile } = useDashboard()
+const { isBitrixMobile } = useDevice()
+const { isNotificationsSlideoverOpen } = useDashboard()
 
 const { data: notifications } = useFetch('https://bitrix24.github.io/templates-dashboard-vue/api/notifications.json', { initialData: [] }).json<Notification[]>()
 </script>
@@ -12,7 +13,7 @@ const { data: notifications } = useFetch('https://bitrix24.github.io/templates-d
   <B24Slideover
     v-model:open="isNotificationsSlideoverOpen"
     title="Notifications"
-    :inset="isBxMobile"
+    :inset="isBitrixMobile"
     :b24ui="{
       content: 'sm:max-w-[470px]',
       body: 'scrollbar-thin scrollbar-transparent'

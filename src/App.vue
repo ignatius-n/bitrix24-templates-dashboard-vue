@@ -13,11 +13,11 @@ import CloudErrorIcon from '@bitrix24/b24icons-vue/main/CloudErrorIcon'
 const toast = useToast()
 const { locale } = useI18n()
 const b24Instance = useB24()
-const { isBxMobile } = useDashboard()
+const { isBitrixMobile } = useDevice()
 
 const isLoading = ref(true)
 
-const toaster = { position: isBxMobile.value ? 'bottom-center' : 'top-right' }
+const toaster = { position: isBitrixMobile.value ? 'bottom-center' : 'top-right' }
 
 const currentLocaleData = computed(() => {
   const currentKey = locale.value as keyof typeof locales
