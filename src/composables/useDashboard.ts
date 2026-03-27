@@ -1,8 +1,6 @@
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { createSharedComposable } from '@vueuse/core'
-import { useColorMode } from '#imports'
-
 
 const _useDashboard = () => {
   const route = useRoute()

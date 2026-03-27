@@ -6,7 +6,6 @@ import { useI18n } from 'vue-i18n'
 import * as locales from '@bitrix24/b24ui-nuxt/locale'
 import { loadLocaleMessages } from './i18n.ts'
 import { useB24 } from './composables/useB24'
-import { useDashboard } from './composables/useDashboard.ts'
 import { sleepAction } from './utils'
 import CloudErrorIcon from '@bitrix24/b24icons-vue/main/CloudErrorIcon'
 

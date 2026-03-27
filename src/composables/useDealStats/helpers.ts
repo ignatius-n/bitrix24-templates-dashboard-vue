@@ -16,7 +16,7 @@ export function getDatesByPeriod(range: Range, period: Period): Date[] {
   return ({
     daily: eachDayOfInterval,
     weekly: eachWeekOfInterval,
-    monthly: eachMonthOfInterval,
+    monthly: eachMonthOfInterval
   } as Record<Period, typeof eachDayOfInterval>)[period](range)
 }
 
@@ -72,8 +72,9 @@ export function groupSalesByDate(
     // Binary search: find the largest timestamp <= closeTs
     while (left <= right) {
       const mid = Math.floor((left + right) / 2)
-      if (timestamps[mid] <= closeTs) {
-        foundTs = timestamps[mid]
+      // @todo fix this (!)
+      if (timestamps[mid]! <= closeTs) {
+        foundTs = timestamps[mid]!
         left = mid + 1
       } else {
         right = mid - 1
@@ -81,7 +82,8 @@ export function groupSalesByDate(
     }
 
     if (foundTs !== null) {
-      groups[foundTs].push(sale)
+      // @todo fix this (!)
+      groups[foundTs]!.push(sale)
     }
   })
 
@@ -101,10 +103,10 @@ export function groupSalesByDate(
  */
 export function buildChartData(sales: Sale[], dates: Date[]): DataRecord[] {
   // Filter out only successful transactions (by semantics)
-  const successfulSales = sales.filter((s) => s.stageSemanticId === 'S')
+  const successfulSales = sales.filter(s => s.stageSemanticId === 'S')
 
   // Get an array of date timestamps
-  const timestamps = dates.map((d) => d.getTime())
+  const timestamps = dates.map(d => d.getTime())
 
   // Group transactions by dates
   const groups = groupSalesByDate(successfulSales, timestamps)
