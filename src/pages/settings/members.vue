@@ -4,7 +4,7 @@ import { useFetch } from '@vueuse/core'
 import type { Member } from '../../types'
 import SearchIcon from '@bitrix24/b24icons-vue/outline/SearchIcon'
 
-const { data: members } = useFetch<Member[]>('https://dashboard-template.nuxt.dev/api/members', { initialData: [] }).json<Member[]>()
+const { data: members } = useFetch('https://bitrix24.github.io/templates-dashboard/api/members', { initialData: [] }).json<Member[]>()
 
 const q = ref('')
 

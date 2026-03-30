@@ -13,7 +13,7 @@ const tabItems = [{
 }]
 const selectedTab = ref('all')
 
-const { data: mails } = useFetch('https://dashboard-template.nuxt.dev/api/mails', { initialData: [] }).json<Mail[]>()
+const { data: mails } = useFetch('https://bitrix24.github.io/templates-dashboard/api/mails', { initialData: [] }).json<Mail[]>()
 
 // Filter mails based on the selected tab
 const filteredMails = computed(() => {
