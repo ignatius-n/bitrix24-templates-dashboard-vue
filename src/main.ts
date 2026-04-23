@@ -5,6 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { i18n } from './i18n'
 import { routes, handleHotUpdate } from 'vue-router/auto-routes'
 import { setupLayouts } from 'virtual:generated-layouts'
+import { createHead } from '@unhead/vue/client'
 import b24UiPlugin from '@bitrix24/b24ui-nuxt/vue-plugin'
 
 import App from './App.vue'
@@ -12,11 +13,13 @@ import App from './App.vue'
 const app = createApp(App)
 
 const basePath = import.meta.env.BASE_URL || '/'
+const head = createHead()
 const router = createRouter({
   routes: setupLayouts(routes as RouteRecordRaw[]),
   history: createWebHistory(basePath)
 })
 
+app.use(head)
 app.use(router)
 app.use(i18n)
 app.use(b24UiPlugin)
