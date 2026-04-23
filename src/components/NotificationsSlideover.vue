@@ -20,7 +20,7 @@ const { data: notifications } = useFetch('https://bitrix24.github.io/templates-d
     }"
   >
     <template #body>
-      <B24Card class="base-mode" :b24ui="{ body: '!px-0 !py-0' }">
+      <B24Card class="base-mode" :b24ui="{ body: 'px-0! py-0!' }">
         <RouterLink
           v-for="notification in notifications"
           :key="notification.id"

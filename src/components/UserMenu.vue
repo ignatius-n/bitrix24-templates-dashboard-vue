@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { B24Frame } from '@bitrix24/b24jssdk'
 import type { DropdownMenuItem } from '@bitrix24/b24ui-nuxt'
+import { useColorMode } from '@bitrix24/b24ui-nuxt/composables'
 import { computed } from 'vue'
 import { useB24 } from '../composables/useB24'
 import { TypeSpecificUrl } from '@bitrix24/b24jssdk'

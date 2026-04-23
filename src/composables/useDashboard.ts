@@ -1,5 +1,6 @@
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useColorMode } from '@bitrix24/b24ui-nuxt/composables'
 import { createSharedComposable } from '@vueuse/core'
 
 const _useDashboard = () => {
